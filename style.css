@@ -1,0 +1,292 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sarala:wght@400;700&display=swap');
+
+:root {
+    --primary: #b1005a;
+    --primary-dark: #7a0040;
+    --primary-light: #f8e6ef;
+    --bg: #f6f8fb;
+    --card: #fff;
+    --text: #222;
+    --text-secondary: #555;
+    --sidebar: #fff;
+    --sidebar-border: #eee;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+[data-theme="dark"] {
+    --bg: #18141c;
+    --card: #23192a;
+    --text: #f6f6f6;
+    --text-secondary: #c7bfc9;
+    --sidebar: #1a1420;
+    --sidebar-border: #2a1b2e;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100%;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background: var(--sidebar);
+    border-right: 1px solid var(--sidebar-border);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 0 16px 0;
+}
+
+.sidebar .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 32px 32px 32px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 40
+}
+.sidebar .logo-icon {
+    background: var(--primary);
+    color: #fff;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+
+.sidebar .logo-text {
+    font-weight: bold;
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.sidebar nav {
+    flex: 1;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0 0 0 0;
+    margin: 0;
+}
+
+.sidebar nav li {
+    margin-bottom: 8px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-secondary);
+    padding: 10px 32px;
+    border-radius: 8px 0 0 8px;
+    font-size: 1rem;
+    transition: background .2s, color .2s;
+}
+
+.sidebar nav a.active,
+.sidebar nav a:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.sidebar .bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    margin-top: 32px;
+}
+
+.sidebar .user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar .user-icon {
+    background: #ccc;
+    color: #fff;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.sidebar .theme-toggle {
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.main {
+    flex: 1;
+    padding: 40px 48px;
+    background: var(--bg);
+}
+
+.main-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.main-header .title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.main-header .subtitle {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.main-header .update-btn {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: background .2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.main-header .update-btn:hover {
+    background: var(--primary-dark);
+}
+
+.status-cards {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 32px;
+}
+
+.status-card {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 24px 32px;
+    min-width: 180px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.status-card .label {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.status-card .value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.status-card .desc {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.location-section {
+    background: var(--primary);
+    border-radius: 16px;
+    padding: 0 0 24px 0;
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+}
+
+.location-section .section-title {
+    color: #fff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    padding: 24px 32px 12px 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.location-section .map-container {
+    height: 320px;
+    border-radius: 0 0 16px 16px;
+    overflow: hidden;
+    margin: 0 24px;
+    box-shadow: var(--shadow);
+}
+
+/* Responsivo */
+@media (max-width: 900px) {
+    .main {
+        padding: 24px 8px;
+    }
+
+    .status-cards {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .sidebar {
+        width: 60px;
+        padding: 16px 0;
+    }
+
+    .sidebar .logo-text,
+    .sidebar nav a span,
+    .sidebar .bottom span {
+        display: none;
+    }
+
+    .sidebar nav a {
+        justify-content: center;
+        padding: 10px 0;
+    }
+
+    .sidebar .bottom {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0;
+    }
+}
