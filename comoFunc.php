@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Geosync - Navbar</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+   <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -315,7 +316,7 @@
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Segurança Total -->
-                <div class="scroll-reveal bg-gradient-to-br from-green-600 to-emerald-600 rounded-2xl p-8 text-center card-hover">
+               <div class="scroll-reveal bg-gradient-to-br from-[#ff2178] to-[#ff6b9d] rounded-2xl p-8 text-center card-hover">
                     <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-shield-alt text-white text-3xl"></i>
                     </div>
@@ -323,22 +324,22 @@
                     <p class="text-lg mb-6">Monitoramento 24/7 com tecnologia de ponta para proteger o que mais importa.</p>
                     <div class="space-y-3">
                         <div class="flex items-center justify-center space-x-2">
-                            <i class="fas fa-check text-green-300"></i>
+                            <i class="fas fa-check text-white-300"></i>
                             <span>Rastreamento contínuo</span>
                         </div>
                         <div class="flex items-center justify-center space-x-2">
-                            <i class="fas fa-check text-green-300"></i>
+                            <i class="fas fa-check text-white-300"></i>
                             <span>Alertas inteligentes</span>
                         </div>
                         <div class="flex items-center justify-center space-x-2">
-                            <i class="fas fa-check text-green-300"></i>
+                            <i class="fas fa-check text-white-300"></i>
                             <span>Histórico completo</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Tranquilidade -->
-                <div class="scroll-reveal bg-gradient-to-br from-blue-600 to-cyan-600 rounded-2xl p-8 text-center card-hover">
+               <div class="scroll-reveal bg-gradient-to-br from-[#ff2178] to-[#ff6b9d] rounded-2xl p-8 text-center card-hover">
                     <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-heart text-white text-3xl"></i>
                     </div>
@@ -346,22 +347,22 @@
                     <p class="text-lg mb-6">Durma em paz sabendo onde seu filho está a qualquer momento do dia.</p>
                     <div class="space-y-3">
                         <div class="flex items-center justify-center space-x-2">
-                            <i class="fas fa-check text-blue-300"></i>
+                            <i class="fas fa-check text-white-300"></i>
                             <span>Localização em tempo real</span>
                         </div>
                         <div class="flex items-center justify-center space-x-2">
-                            <i class="fas fa-check text-blue-300"></i>
+                            <i class="fas fa-check text-white-300"></i>
                             <span>Notificações personalizadas</span>
                         </div>
                         <div class="flex items-center justify-center space-x-2">
-                            <i class="fas fa-check text-blue-300"></i>
+                            <i class="fas fa-check text-white-300"></i>
                             <span>Suporte 24h</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Praticidade -->
-                <div class="scroll-reveal bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl p-8 text-center card-hover">
+              <div class="scroll-reveal bg-gradient-to-br from-[#ff2178] to-[#ff6b9d] rounded-2xl p-8 text-center card-hover">
                     <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-mobile-alt text-white text-3xl"></i>
                     </div>
@@ -369,15 +370,15 @@
                     <p class="text-lg mb-6">Interface simples e intuitiva, acessível de qualquer lugar pelo celular.</p>
                     <div class="space-y-3">
                         <div class="flex items-center justify-center space-x-2">
-                            <i class="fas fa-check text-purple-300"></i>
+                            <i class="fas fa-check text-white-300"></i>
                             <span>App intuitivo</span>
                         </div>
                         <div class="flex items-center justify-center space-x-2">
-                            <i class="fas fa-check text-purple-300"></i>
+                            <i class="fas fa-check text-white-300"></i>
                             <span>Acesso remoto</span>
                         </div>
                         <div class="flex items-center justify-center space-x-2">
-                            <i class="fas fa-check text-purple-300"></i>
+                            <i class="fas fa-check text-white-300"></i>
                             <span>Configuração fácil</span>
                         </div>
                     </div>

@@ -185,188 +185,171 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+
                 <!-- Produto 1 -->
-                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" data-category="cores especiais" onclick="openModal('geosync-pro')">
-                    <div class="h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center relative">
-                        <div class="absolute top-4 right-4">
-                            <span class="bg-accent px-3 py-1 rounded-full text-xs font-bold">NOVO</span>
-                        </div>
-                        <svg width="120" height="120" viewBox="0 0 120 120" class="text-gray-300">
-                            <path d="M30 20 L90 20 L90 100 L60 110 L30 100 Z" fill="currentColor" opacity="0.9"/>
-                            <circle cx="60" cy="40" r="8" fill="#ff2178"/>
-                            <rect x="45" y="55" width="30" height="4" rx="2" fill="#ff2178"/>
-                            <rect x="45" y="65" width="20" height="4" rx="2" fill="#ff2178"/>
-                            <circle cx="50" cy="75" r="2" fill="#ff2178"/>
-                            <circle cx="70" cy="75" r="2" fill="#ff2178"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold">Geosync Pro</h4>
-                            <span class="text-2xl font-bold text-accent">R$ 899</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">Modelo premium com inteligência artificial integrada</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">IA Integrada</span>
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">GPS Ultra-Preciso</span>
-                        </div>
-                        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
-                            Ver Detalhes
-                        </button>
-                    </div>
-                </div>
+               <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" 
+     data-category="cores especiais" onclick="openModal('geosync-pro')">
+    <div class="h-64 relative">
+        <!-- Badge -->
+        <div class="absolute top-4 right-4 z-10">
+            <span class="bg-accent px-3 py-1 rounded-full text-xs font-bold">NOVO</span>
+        </div>
+        <!-- Imagem -->
+        <img src="../GeoSync/imagens/banner3.png" alt="Geosync Pro" 
+             class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+            <h4 class="text-xl font-bold">Geosync Pro</h4>
+            <span class="text-2xl font-bold text-accent">R$ 899</span>
+        </div>
+        <p class="text-gray-400 mb-4">Modelo premium com inteligência artificial integrada</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-800 text-xs px-2 py-1 rounded">IA Integrada</span>
+            <span class="bg-gray-800 text-xs px-2 py-1 rounded">GPS Ultra-Preciso</span>
+        </div>
+        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
+            Ver Detalhes
+        </button>
+    </div>
+</div>
+
 
                 <!-- Produto 2 -->
-                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" data-category="cores tamanhos" onclick="openModal('geosync-classic')">
-                    <div class="h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center relative">
-                        <div class="absolute top-4 right-4">
-                            <span class="bg-blue-500 px-3 py-1 rounded-full text-xs font-bold">POPULAR</span>
-                        </div>
-                        <svg width="120" height="120" viewBox="0 0 120 120" class="text-gray-300">
-                            <path d="M30 20 L90 20 L90 100 L60 110 L30 100 Z" fill="currentColor" opacity="0.9"/>
-                            <circle cx="60" cy="40" r="6" fill="#ff2178"/>
-                            <rect x="45" y="55" width="30" height="3" rx="1.5" fill="#ff2178"/>
-                            <rect x="45" y="65" width="25" height="3" rx="1.5" fill="#ff2178"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold">Geosync Classic</h4>
-                            <span class="text-2xl font-bold text-accent">R$ 599</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">Funcionalidades essenciais com excelente custo-benefício</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">GPS Preciso</span>
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Sensor Abertura</span>
-                        </div>
-                        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
-                            Ver Detalhes
-                        </button>
-                    </div>
-                </div>
+                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" 
+        data-category="cores tamanhos" onclick="openModal('geosync-classic')">
+        
+        <!-- Imagem no topo do card -->
+        <div class="h-64 relative">
+            <!-- Badge -->
+            <div class="absolute top-4 right-4 z-10">
+                <span class="bg-blue-500 px-3 py-1 rounded-full text-xs font-bold">POPULAR</span>
+            </div>
+            <!-- Imagem ocupando todo o espaço -->
+            <img src="../GeoSync/imagens/emergency-bag.png" alt="Geosync Classic" 
+                class="w-full h-full object-cover">
+        </div>
+        <!-- Conteúdo -->
+        <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+                <h4 class="text-xl font-bold">Geosync Classic</h4>
+                <span class="text-2xl font-bold text-accent">R$ 599</span>
+            </div>
+            <p class="text-gray-400 mb-4">Funcionalidades essenciais com excelente custo-benefício</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-800 text-xs px-2 py-1 rounded">GPS Preciso</span>
+                <span class="bg-gray-800 text-xs px-2 py-1 rounded">Sensor Abertura</span>
+            </div>
+            <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
+                Ver Detalhes
+            </button>
+        </div>
+    </div>
+
 
                 <!-- Produto 3 -->
-                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" data-category="especiais cores" onclick="openModal('geosync-kids')">
-                    <div class="h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center relative">
-                        <div class="absolute top-4 right-4">
-                            <span class="bg-green-500 px-3 py-1 rounded-full text-xs font-bold">KIDS</span>
-                        </div>
-                        <svg width="120" height="120" viewBox="0 0 120 120" class="text-gray-300">
-                            <path d="M30 20 L90 20 L90 100 L60 110 L30 100 Z" fill="currentColor" opacity="0.9"/>
-                            <circle cx="60" cy="40" r="5" fill="#ff2178"/>
-                            <rect x="45" y="55" width="30" height="2" rx="1" fill="#ff2178"/>
-                            <rect x="45" y="65" width="20" height="2" rx="1" fill="#ff2178"/>
-                            <circle cx="45" cy="75" r="3" fill="#ffd700"/>
-                            <circle cx="75" cy="75" r="3" fill="#ffd700"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold">Geosync Kids</h4>
-                            <span class="text-2xl font-bold text-accent">R$ 449</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">Especialmente desenvolvida para crianças pequenas</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Botão SOS</span>
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Design Infantil</span>
-                        </div>
-                        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
-                            Ver Detalhes
-                        </button>
-                    </div>
-                </div>
+             <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" 
+     data-category="especiais cores" onclick="openModal('geosync-kids')">
+    <div class="h-64 relative">
+        <div class="absolute top-4 right-4 z-10">
+            <span class="bg-green-500 px-3 py-1 rounded-full text-xs font-bold">KIDS</span>
+        </div>
+        <img src="../GeoSync/imagens/banner2.png" alt="Geosync Kids" 
+             class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+            <h4 class="text-xl font-bold">Geosync Kids</h4>
+            <span class="text-2xl font-bold text-accent">R$ 449</span>
+        </div>
+        <p class="text-gray-400 mb-4">Especialmente desenvolvida para crianças pequenas</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Botão SOS</span>
+            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Design Infantil</span>
+        </div>
+        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
+            Ver Detalhes
+        </button>
+    </div>
+</div>
 
                 <!-- Produto 4 -->
-                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" data-category="especiais tamanhos" onclick="openModal('geosync-sport')">
-                    <div class="h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center relative">
-                        <div class="absolute top-4 right-4">
-                            <span class="bg-orange-500 px-3 py-1 rounded-full text-xs font-bold">SPORT</span>
-                        </div>
-                        <svg width="120" height="120" viewBox="0 0 120 120" class="text-gray-300">
-                            <path d="M30 20 L90 20 L90 100 L60 110 L30 100 Z" fill="currentColor" opacity="0.9"/>
-                            <circle cx="60" cy="40" r="7" fill="#ff2178"/>
-                            <rect x="45" y="55" width="30" height="3" rx="1.5" fill="#ff2178"/>
-                            <rect x="45" y="65" width="25" height="3" rx="1.5" fill="#ff2178"/>
-                            <path d="M50 75 L70 75 L65 85 L55 85 Z" fill="#ff2178"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold">Geosync Sport</h4>
-                            <span class="text-2xl font-bold text-accent">R$ 749</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">Ultra-resistente para atividades esportivas</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">IP67</span>
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Anti-Impacto</span>
-                        </div>
-                        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
-                            Ver Detalhes
-                        </button>
-                    </div>
-                </div>
+                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" 
+     data-category="especiais tamanhos" onclick="openModal('geosync-sport')">
+    <div class="h-64 relative">
+        <div class="absolute top-4 right-4 z-10">
+            <span class="bg-orange-500 px-3 py-1 rounded-full text-xs font-bold">SPORT</span>
+        </div>
+        <img src="../GeoSync/imagens/banner2.png" alt="Geosync Sport" 
+             class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+            <h4 class="text-xl font-bold">Geosync Sport</h4>
+            <span class="text-2xl font-bold text-accent">R$ 749</span>
+        </div>
+        <p class="text-gray-400 mb-4">Ultra-resistente para atividades esportivas</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-800 text-xs px-2 py-1 rounded">IP67</span>
+            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Anti-Impacto</span>
+        </div>
+        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
+            Ver Detalhes
+        </button>
+    </div>
+</div>
 
                 <!-- Produto 5 -->
-                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" data-category="cores tamanhos" onclick="openModal('geosync-teen')">
-                    <div class="h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center relative">
-                        <div class="absolute top-4 right-4">
-                            <span class="bg-purple-500 px-3 py-1 rounded-full text-xs font-bold">TEEN</span>
-                        </div>
-                        <svg width="120" height="120" viewBox="0 0 120 120" class="text-gray-300">
-                            <path d="M30 20 L90 20 L90 100 L60 110 L30 100 Z" fill="currentColor" opacity="0.9"/>
-                            <circle cx="60" cy="40" r="6" fill="#ff2178"/>
-                            <rect x="45" y="55" width="30" height="3" rx="1.5" fill="#ff2178"/>
-                            <rect x="45" y="65" width="25" height="3" rx="1.5" fill="#ff2178"/>
-                            <rect x="45" y="75" width="30" height="3" rx="1.5" fill="#ff2178"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold">Geosync Teen</h4>
-                            <span class="text-2xl font-bold text-accent">R$ 679</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">Design moderno e discreto para adolescentes</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">USB Integrado</span>
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Laptop 15.6"</span>
-                        </div>
-                        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
-                            Ver Detalhes
-                        </button>
-                    </div>
-                </div>
+                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" 
+        data-category="cores tamanhos" onclick="openModal('geosync-teen')">
+        <div class="h-64 relative">
+            <div class="absolute top-4 right-4 z-10">
+                <span class="bg-purple-500 px-3 py-1 rounded-full text-xs font-bold">TEEN</span>
+            </div>
+            <img src="../GeoSync/imagens/emergency-bag.png" alt="Geosync Teen" 
+                class="w-full h-full object-cover">
+        </div>
+        <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+                <h4 class="text-xl font-bold">Geosync Teen</h4>
+                <span class="text-2xl font-bold text-accent">R$ 679</span>
+            </div>
+            <p class="text-gray-400 mb-4">Design moderno e discreto para adolescentes</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-gray-800 text-xs px-2 py-1 rounded">USB Integrado</span>
+                <span class="bg-gray-800 text-xs px-2 py-1 rounded">Laptop 15.6"</span>
+            </div>
+            <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
+                Ver Detalhes
+            </button>
+        </div>
+    </div>
 
                 <!-- Produto 6 -->
-                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" data-category="especiais cores" onclick="openModal('geosync-limited')">
-                    <div class="h-64 bg-gradient-to-br from-gray-700 to-gray-800 flex items-center justify-center relative">
-                        <div class="absolute top-4 right-4">
-                            <span class="bg-yellow-500 px-3 py-1 rounded-full text-xs font-bold">LIMITED</span>
-                        </div>
-                        <svg width="120" height="120" viewBox="0 0 120 120" class="text-gray-300">
-                            <path d="M30 20 L90 20 L90 100 L60 110 L30 100 Z" fill="currentColor" opacity="0.9"/>
-                            <circle cx="60" cy="40" r="8" fill="#ff2178"/>
-                            <rect x="45" y="55" width="30" height="4" rx="2" fill="#ff2178"/>
-                            <rect x="45" y="65" width="20" height="4" rx="2" fill="#ff2178"/>
-                            <path d="M55 75 L65 75 L67 85 L53 85 Z" fill="#ff2178"/>
-                            <circle cx="50" cy="30" r="2" fill="#ffd700"/>
-                            <circle cx="70" cy="30" r="2" fill="#ffd700"/>
-                        </svg>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-xl font-bold">Geosync Limited</h4>
-                            <span class="text-2xl font-bold text-accent">R$ 1.299</span>
-                        </div>
-                        <p class="text-gray-400 mb-4">Edição limitada com acabamento premium</p>
-                        <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Ouro 18k</span>
-                            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Numerada</span>
-                        </div>
-                        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
-                            Ver Detalhes
-                        </button>
-                    </div>
-                </div>
+                <div class="product-card bg-gray-900 rounded-2xl overflow-hidden card-hover cursor-pointer" 
+     data-category="especiais cores" onclick="openModal('geosync-limited')">
+    <div class="h-64 relative">
+        <div class="absolute top-4 right-4 z-10">
+            <span class="bg-yellow-500 px-3 py-1 rounded-full text-xs font-bold">LIMITED</span>
+        </div>
+        <img src="../GeoSync/imagens/banner2.png" alt="Geosync Limited" 
+             class="w-full h-full object-cover">
+    </div>
+    <div class="p-6">
+        <div class="flex justify-between items-start mb-3">
+            <h4 class="text-xl font-bold">Geosync Limited</h4>
+            <span class="text-2xl font-bold text-accent">R$ 1.299</span>
+        </div>
+        <p class="text-gray-400 mb-4">Edição limitada com acabamento premium</p>
+        <div class="flex flex-wrap gap-2 mb-4">
+            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Ouro 18k</span>
+            <span class="bg-gray-800 text-xs px-2 py-1 rounded">Numerada</span>
+        </div>
+        <button class="w-full bg-accent hover:bg-pink-600 text-white py-2 rounded-lg font-semibold transition-colors">
+            Ver Detalhes
+        </button>
+    </div>
+</div>
             </div>
         </div>
     </section>
@@ -505,7 +488,7 @@
             'geosync-pro': {
                 title: 'Geosync Pro',
                 price: 'R$ 899',
-                image: 'bg-gradient-to-br from-gray-700 to-gray-800',
+                image: '../GeoSync/imagens/banner2.png',
                 description: `
                     <div class="space-y-4">
                         <p class="text-lg leading-relaxed">A Geosync Pro representa o que há de mais avançado em tecnologia de segurança infantil, incorporando inteligência artificial para proteção preditiva.</p>
