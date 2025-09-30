@@ -145,9 +145,9 @@
         <!-- Links desktop -->
         <div class="hidden md:flex space-x-8">
           <a href="./index.php" class="hover:text-accent transition-colors">Início</a>
-          <a href="../GeoSync/comoFunc.php" class="text-accent font-medium">Saiba Mais</a>
+          <a href="../GeoSync/comoFunc.php" class="hover:text-accent transition-colors">Saiba Mais</a>
           <a href="./produtos.php" class="hover:text-accent transition-colors">Produtos</a>
-          <a href="./compras.php" class="hover:text-accent transition-colors">Carrinho</a>
+          <a href="./compras.php" class="text-accent font-medium">Carrinho</a>
         </div>
 
         <!-- Menu mobile -->

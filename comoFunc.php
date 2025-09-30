@@ -19,7 +19,6 @@
   </script>
 </head>
 <body class="bg-primary text-white">
-
   <!-- Navbar -->
   <nav class="bg-primary border-b border-gray-700 sticky top-0 z-40">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
