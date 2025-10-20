@@ -97,26 +97,12 @@
             </div>
             
             <!-- Mochila Central Animada -->
-            <div class="scroll-reveal">
-                <div class="relative mx-auto w-64 h-64 mb-12">
-                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500 to-pink-500 rounded-3xl flex items-center justify-center tech-animation">
-                        <svg width="150" height="150" viewBox="0 0 120 120" class="text-white">
-                            <path d="M30 20 L90 20 L90 100 L60 110 L30 100 Z" fill="currentColor" opacity="0.9"/>
-                            <circle cx="60" cy="40" r="10" fill="#ff2178" class="tech-animation"/>
-                            <rect x="45" y="55" width="30" height="5" rx="2.5" fill="#ff2178"/>
-                            <rect x="45" y="65" width="20" height="5" rx="2.5" fill="#ff2178"/>
-                            <!-- Ondas de sinal -->
-                            <circle cx="60" cy="40" r="15" fill="none" stroke="#ff2178" stroke-width="2" opacity="0.6" class="tech-animation"/>
-                            <circle cx="60" cy="40" r="20" fill="none" stroke="#ff2178" stroke-width="1" opacity="0.4" class="tech-animation"/>
-                        </svg>
-                    </div>
+          
                     <!-- Indicadores de conectividade -->
                     <div class="absolute -top-4 -right-4 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                         <i class="fas fa-wifi text-white text-sm"></i>
                     </div>
-                    <div class="absolute -bottom-4 -left-4 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                        <i class="fas fa-satellite text-white text-sm"></i>
-                    </div>
+                 
                 </div>
             </div>
         </div>
@@ -409,62 +395,99 @@
     </section>
 
     <!-- Rodapé -->
-    <footer class="bg-gray-900 py-12">
-        <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-8 h-8 bg-accent rounded-lg flex items-center justify-center">
-                            <i class="fas fa-shield-alt text-white"></i>
-                        </div>
-                        <h4 class="text-xl font-bold">Geosync</h4>
-                    </div>
-                    <p class="text-gray-400">Tecnologia inteligente para a segurança das crianças.</p>
-                </div>
-                
-                <div>
-                    <h5 class="font-bold mb-4">Links Rápidos</h5>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><a href="#" class="hover:text-accent transition-colors">Início</a></li>
-                        <li><a href="#" class="hover:text-accent transition-colors">Produtos</a></li>
-                        <li><a href="#" class="hover:text-accent transition-colors">Como Funciona</a></li>
-                        <li><a href="#" class="hover:text-accent transition-colors">Suporte</a></li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="font-bold mb-4">Contato</h5>
-                    <ul class="space-y-2 text-gray-400">
-                        <li><i class="fas fa-phone mr-2 text-accent"></i> (11) 9999-9999</li>
-                        <li><i class="fas fa-envelope mr-2 text-accent"></i> contato@geosync.com</li>
-                        <li><i class="fas fa-map-marker-alt mr-2 text-accent"></i> São Paulo, SP</li>
-                    </ul>
-                </div>
-                
-                <div>
-                    <h5 class="font-bold mb-4">Redes Sociais</h5>
-                    <div class="flex space-x-4">
-                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-gray-700 hover:bg-accent rounded-lg flex items-center justify-center transition-colors">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
+    <style>
+    /* Estilos customizados para o rodapé (adicione dentro da sua tag <style>) */
+    :root {
+        --primary-bg: #192230;
+        --accent-color: #ff2178;
+    }
+    
+    /* Cores ajustadas para o fundo do rodapé */
+    .bg-primary { background-color: #192230; } 
+    .text-accent { color: #ff2178; }
+    
+    /* Estilo do ícone de rede social */
+    .social-icon-hover {
+        background-color: rgba(15, 23, 42, 0.5); /* gray-900/50 */
+        transition: all 0.3s ease;
+    }
+    
+    .social-icon-hover:hover {
+        background-color: #ff2178; /* accent */
+    }
+</style>
+
+<footer class="bg-primary text-white pt-16 pb-6">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
+
+            <div class="col-span-2 md:col-span-1">
+                <div class="flex items-center mb-6">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-3">
+                        <path d="M16 0L31.547 8.27214V23.7279L16 32L0.453018 23.7279V8.27214L16 0Z" fill="#FF2178"/>
+                        <circle cx="16" cy="12" r="4" fill="#192230"/>
+                    </svg>
+                    <div>
+                        <span class="text-xl font-bold">Geosync</span>
+                        <p class="text-gray-400 text-xs">Smart Security</p>
                     </div>
                 </div>
+                <p class="text-gray-400 leading-relaxed max-w-xs">
+                    Tecnologia inteligente para a segurança das crianças, com inovação e qualidade premium.
+                </p>
             </div>
-            
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Geosync. Todos os direitos reservados.</p>
+
+            <div>
+                <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Navegação</h4>
+                <ul class="space-y-3">
+                    <li><a href="./index.php" class="text-gray-400 hover:text-white transition-colors">Página Inicial</a></li>
+                    <li><a href="./produtos.php" class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tecnologia</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Suporte</a></li>
+                </ul>
             </div>
+
+            <div>
+                <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Contato</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-center">
+                        <i class="fas fa-phone-alt text-accent mr-3"></i>
+                        <span class="text-gray-400">(11) 9999-9999</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-envelope text-accent mr-3"></i>
+                        <span class="text-gray-400">contato@geosync.com</span>
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-map-marker-alt text-accent mr-3"></i>
+                        <span class="text-gray-400">São Paulo, SP</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Redes Sociais</h4>
+                <div class="flex space-x-4 mb-4">
+                    <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        <i class="fab fa-facebook-f text-white"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        <i class="fab fa-instagram text-white"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        <i class="fab fa-linkedin-in text-white"></i>
+                    </a>
+                </div>
+                <p class="text-gray-400 text-xs mt-6">Siga-nos para novidades e atualizações</p>
+            </div>
+
         </div>
-    </footer>
+
+        <div class="border-t border-gray-700 mt-12 pt-6 text-center text-xs text-gray-500">
+            &copy; 2024 Geosync. Todos os direitos reservados. | Tecnologia e Segurança
+        </div>
+    </div>
+</footer>
 
     <script>
         // Animação de scroll reveal
