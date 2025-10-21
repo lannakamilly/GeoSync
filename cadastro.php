@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+     <link rel="shortcut icon" href="./imagens/GeoSync-bg.png" type="image/x-icon">
+       <title>Geosync</title>
     <style>
         body {
             box-sizing: border-box;
