@@ -506,17 +506,17 @@
                             
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
                                 <div class="payment-option border-2 border-gray-600 rounded-2xl p-4 sm:p-6 text-center selected" onclick="selectPayment('credit')">
-                                    <div class="text-3xl sm:text-4xl mb-2 sm:mb-4">💳</div>
+                                    <div class="text-3xl sm:text-4xl mb-2 sm:mb-4"> <i class="fas fa-credit-card text-2xl" aria-hidden="true"></i></div>
                                     <div class="font-bold text-base mb-1">Cartão de Crédito</div>
                                     <div class="text-xs text-gray-400">Até 12x sem juros</div>
                                 </div>
                                 <div class="payment-option border-2 border-gray-600 rounded-2xl p-4 sm:p-6 text-center" onclick="selectPayment('pix')">
-                                    <div class="text-3xl sm:text-4xl mb-2 sm:mb-4">📱</div>
+                                    <div class="text-3xl sm:text-4xl mb-2 sm:mb-4"><i class="fas fa-qrcode text-2xl" aria-hidden="true"></i></div>
                                     <div class="font-bold text-base mb-1">PIX</div>
                                     <div class="text-xs text-gray-400">5% de desconto</div>
                                 </div>
                                 <div class="payment-option border-2 border-gray-600 rounded-2xl p-4 sm:p-6 text-center" onclick="selectPayment('boleto')">
-                                    <div class="text-3xl sm:text-4xl mb-2 sm:mb-4">📄</div>
+                                    <div class="text-3xl sm:text-4xl mb-2 sm:mb-4"><i class="fas fa-file-invoice text-2xl" aria-hidden="true"></i></div>
                                     <div class="font-bold text-base mb-1">Boleto</div>
                                     <div class="text-xs text-gray-400">3 dias para pagar</div>
                                 </div>

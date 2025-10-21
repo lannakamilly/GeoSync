@@ -226,7 +226,7 @@
         </button>
         
         <div class="switch-form">
-            Já tem uma conta? <a href="#" onclick="showLogin()">Entrar</a>
+            Já tem uma conta? <a href="login.php" onclick="showLogin()">Entrar</a>
         </div>
     </div>
 
