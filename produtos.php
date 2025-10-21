@@ -159,7 +159,7 @@
                         <div class="absolute inset-0 bg-black/60 flex items-center justify-start text-white p-6 md:p-10 banner-text-fade-in">
                             <div class="max-w-md">
                                 <span class="bg-accent text-white text-xs md:text-sm font-bold px-3 py-1 rounded-full mb-3 inline-block">LANÇAMENTO EXCLUSIVO | 30% OFF</span>
-                                <h2 class="text-3xl font-extrabold leading-tight mb-3">Geosync Pro com IA</h2>
+                                <h2 class="text-3xl font-extrabold leading-tight mb-3">Geosync Safetrake com IA</h2>
                                 <p class="text-gray-200 text-base mb-4">Monitoramento preditivo e alertas antecipados para segurança inteligente.</p>
                                 <a href="#" class="bg-accent hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-xl transition-colors inline-flex items-center text-sm">
                                     Ver Oferta Especial <i class="fas fa-arrow-right ml-2 text-sm"></i>
@@ -246,7 +246,7 @@
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between items-start mb-3">
-                            <h4 class="text-2xl font-bold">Geosync Pro</h4>
+                            <h4 class="text-2xl font-bold">Geosync Safetrake</h4>
                             <span class="text-3xl font-extrabold text-accent">R$ 899</span>
                         </div>
                         <p class="text-gray-400 mb-4 h-12 overflow-hidden">Modelo premium com inteligência artificial integrada e rastreamento de altíssima precisão.</p>
@@ -547,7 +547,7 @@
         // MANTIVE APENAS OS PRODUTOS VISÍVEIS (Pro, Classic, Kids) no Data
         const productsData = {
             'geosync-pro': {
-                title: 'Geosync Pro',
+                title: 'Geosync Safetrake',
                 price: 'R$ 899',
                 description: 'Modelo premium com inteligência artificial integrada, rastreamento de altíssima precisão e bateria de longa duração. Feita com material balístico ultra-resistente.',
                 specs: [

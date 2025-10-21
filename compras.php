@@ -260,7 +260,7 @@
                                         <img src="./imagens/vermelho-1.jpeg" alt="Imagem do Geosync Pro" class="w-full h-full object-cover">
                                     </div>
                                     <div class="flex-1 cart-item-info text-center sm:text-left">
-                                        <h4 class="text-lg sm:text-xl font-bold mb-1">Geosync Pro</h4>
+                                        <h4 class="text-lg sm:text-xl font-bold mb-1">Geosync Safetrake</h4>
                                         <p class="text-gray-400 mb-2 text-sm sm:text-base">Modelo premium com IA integrada</p>
                                         <div class="flex items-center space-x-3 justify-center sm:justify-start">
                                             <span class="text-xl sm:text-2xl font-bold text-accent">R$ 899</span>
