@@ -1,3 +1,38 @@
+<?php
+session_start();
+
+// Redireciona para a página de login se a variável de sessão 'usuario' não estiver definida.
+if (!isset($_SESSION['usuario'])) {
+    header("Location: login.php");
+    exit;
+}
+
+/**
+ * Define o nome do usuário.
+ * * Acessa o nome a partir de $_SESSION['usuario']['nome'].
+ * Se o array 'usuario' existir, mas a chave 'nome' não, ou se 'usuario' for uma string,
+ * a lógica abaixo tenta lidar com isso, mas o ideal é que a sessão siga uma estrutura consistente:
+ * * Se $_SESSION['usuario'] for um ARRAY (e.g., ['id' => 1, 'nome' => 'Seu Nome']):
+ * $nome_usuario = $_SESSION['usuario']['nome'] ?? 'Usuário';
+ * * Se $_SESSION['usuario'] for apenas uma STRING (e.g., 'Seu Nome'):
+ * $nome_usuario = is_array($_SESSION['usuario']) ? ($_SESSION['usuario']['nome'] ?? 'Usuário') : $_SESSION['usuario'];
+ * * MANTENDO A SUA VERSÃO MAIS PROVÁVEL e segura (acessando a chave 'nome' de um array de sessão):
+ */
+$nome_usuario = is_array($_SESSION['usuario']) && isset($_SESSION['usuario']['nome']) 
+              ? $_SESSION['usuario']['nome'] 
+              : (is_string($_SESSION['usuario']) ? $_SESSION['usuario'] : 'Usuário');
+
+// Se a sessão for um array, mas sem 'nome', ou se for algo inesperado, usa o default 'Usuário'.
+// Se a sua sessão for SOMENTE a string com o nome, a linha acima garante que funcione.
+// Se a sua sessão for um array com a chave 'nome', a linha acima garante que funcione.
+
+// NOTA: Para este código, vamos manter a lógica mais simples e comum do seu rascunho, 
+// assumindo que a sessão é um array com a chave 'nome', mas aprimorando a verificação:
+$nome_usuario = $_SESSION['usuario']['nome'] ?? $_SESSION['usuario'] ?? 'Usuário';
+$nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XSS
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -34,7 +69,7 @@
         }
         
         /* ************************************************* */
-        /* ESTILOS PARA OS CARDS DE TECNOLOGIA (O que você pediu para arrumar) */
+        /* ESTILOS PARA OS CARDS DE TECNOLOGIA */
         /* ************************************************* */
         .tech-card-container {
             /* Fundo escuro levemente diferente do body */
@@ -80,7 +115,7 @@
         }
 
         /* ************************************************* */
-        /* Estilos do Carrossel e Seções (Para a estrutura da página) */
+        /* Estilos do Carrossel e Seções */
         /* ************************************************* */
         .tech, .testimonials {
             padding: 4rem 1.5rem;
@@ -219,7 +254,7 @@
 
 <body class="bg-primary text-white">
 
-   <nav class="bg-primary border-b border-gray-700 sticky top-0 z-40">
+    <nav class="bg-primary border-b border-gray-700 sticky top-0 z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
 
@@ -237,10 +272,12 @@
                         <a href="./compras.php" class="hover:text-accent transition-colors">Carrinho</a>
                     </div>
 
-                    <a href="./login.php" class="hidden md:block text-white hover:text-accent transition-colors" title="Login / Perfil">
-                        <i class="fas fa-user-circle text-2xl"></i>
-                    </a>
-
+                    <div class="hidden md:flex items-center space-x-4">
+                        <span class="text-gray-300">Olá, <strong><?php echo $nome_usuario; ?></strong></span>
+                        <a href="sair.php" class="text-white custom-btn-pink px-3 py-1 rounded-md text-sm font-medium hover:bg-red-600 transition-colors" title="Sair da Conta">
+                            <i class="fas fa-sign-out-alt mr-1"></i> Sair
+                        </a>
+                    </div>
                     <button class="md:hidden hover:text-accent transition-colors" onclick="toggleMobileMenu()">
                         <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -256,18 +293,19 @@
 
         <div id="mobile-menu" class="hidden md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col bg-gray-900 border-t border-gray-700">
+                <p class="px-3 py-2 text-base font-bold text-white border-b border-gray-700 mb-1">Olá, <?php echo $nome_usuario; ?></p>
                 <a href="./index.php" class="block px-3 py-2 rounded-md text-base font-medium text-accent bg-gray-700 transition-colors">Início</a>
                 <a href="../GeoSync/comoFunc.php" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Saiba Mais</a>
                 <a href="./produtos.php" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Produtos</a>
                 <a href="./compras.php" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Carrinho</a>
-                <a href="./login.php" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-800 hover:bg-gray-700 transition-colors">
-                    <i class="fas fa-sign-in-alt mr-2"></i> Login / Criar Conta
+                <a href="./sair.php" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-red-700 hover:bg-red-600 transition-colors mt-2">
+                    <i class="fas fa-sign-out-alt mr-2"></i> Sair
                 </a>
             </div>
         </div>
-    </nav>
+        </nav>
     <div class="content">
-        <section class="py-16 px-6 max-w-7xl mx-auto">
+    <section class="py-16 px-6 max-w-7xl mx-auto">
             <div class="grid lg:grid-cols-2 gap-12 items-start">
                 <div class="space-y-6">
                     <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full custom-bg-pink">
@@ -366,7 +404,7 @@
                 <div class="tech-card-container">
                     <div class="flex items-start mb-4">
                         <div class="tech-icon-box">
-                             <i class="fas fa-map-marker-alt"></i>
+                               <i class="fas fa-map-marker-alt"></i>
                         </div> 
                         <div class="flex-grow">
                             <h3 class="tech-title">Rastreamento GPS em Tempo Real</h3>
@@ -603,7 +641,7 @@
 
             mobileMenu.classList.toggle('hidden'); 
             hamburgerIcon.classList.toggle('hidden'); 
-            closeIcon.classList.toggle('hidden');     
+            closeIcon.classList.toggle('hidden'); 	
         }
 
         // **********************************************
@@ -637,47 +675,49 @@
                 slides.forEach(setSlidePosition);
 
                 track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+
                 currentIndicator.classList.remove('active');
                 targetIndicator.classList.add('active');
+
                 currentSlideIndex = targetIndex;
             };
 
-            // Botão Next
+            // Navegação por botões
             nextButton.addEventListener('click', () => {
                 let targetIndex = (currentSlideIndex + 1) % slides.length;
                 updateCarousel(targetIndex);
             });
 
-            // Botão Prev
             prevButton.addEventListener('click', () => {
                 let targetIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
                 updateCarousel(targetIndex);
             });
-            
-            // Indicadores
+
+            // Navegação por indicadores
             indicators.forEach((indicator, index) => {
                 indicator.addEventListener('click', () => {
                     updateCarousel(index);
                 });
             });
 
-            // Adiciona um listener de resize para ajustar o carrossel na mudança de tela
+            // Recalcular largura ao redimensionar (melhora a responsividade)
             window.addEventListener('resize', () => {
+                slideWidth = slides.length > 0 ? slides[0].getBoundingClientRect().width : 0;
                 if (slides.length > 0) {
-                    slideWidth = slides[0].getBoundingClientRect().width;
                     slides.forEach(setSlidePosition);
-                    // Reposiciona para o slide atual
+                    // Garante que o carrossel permaneça na posição correta após o redimensionamento
                     track.style.transform = 'translateX(-' + slides[currentSlideIndex].style.left + ')';
                 }
             });
-            
-            // Garante que o primeiro slide esteja visível e ativo ao carregar
-            if (slides.length > 0) {
-                 indicators[0].classList.add('active');
-            }
-        });
 
+            // Configuração do Autoplay (Opcional)
+            /*
+            setInterval(() => {
+                let targetIndex = (currentSlideIndex + 1) % slides.length;
+                updateCarousel(targetIndex);
+            }, 5000); // Muda a cada 5 segundos
+            */
+        });
     </script>
-    <script src="script.js"></script> 
 </body>
 </html>
