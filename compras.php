@@ -113,7 +113,7 @@
             position: relative;
         }
         
-        .step-indicator::after {
+        /* .step-indicator::after {
             content: '';
             position: absolute;
             top: 50%;
@@ -122,7 +122,7 @@
             height: 2px;
             background: linear-gradient(90deg, #ff2178, transparent);
             transform: translateY(-50%);
-        }
+        } */
         
         .step-indicator:last-child::after {
             display: none;
