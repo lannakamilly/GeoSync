@@ -333,16 +333,6 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
                         oferecendo segurança, praticidade e tranquilidade para toda a família.
                     </p>
 
-                    <!-- Botão -->
-                    <!-- <button
-                        class="custom-btn-pink hover:custom-btn-pink text-white font-semibold px-5 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
-                        Quero conhecer
-                    </button> -->
-                        <button
-                            id="btnQueroConhecer"
-                            class="custom-btn-pink hover:custom-btn-pink text-white font-semibold px-7 py-4 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
-                            Quero conhecer
-                        </button>
                     <a href="./produtos.php" 
                         class="custom-btn-pink hover:custom-btn-pink text-white font-semibold px-5 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl inline-block">
                         Quero conhecer
@@ -399,42 +389,29 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
                     </div>
                 </div>
             </div>
-    </div>
-    </section>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'984cd0bd5674f191',t:'MTc1ODgyNzM2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
-
-    <section class="tech">
-        <section class="tech" id="tech-section">
-        <h2>
-            Tecnologia que <span class="highlight-pink">Protege</span>
-        </h2>
-        <p>
-            Descubra como nossa mochila inteligente revoluciona a segurança infantil com recursos inovadores
-        </p>
-        <div class="tech-cards">
-            <div class="card">
-                <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
-                <div class="card-text">
-                    <h3>Rastreamento GPS em Tempo Real</h3>
-                    <p>Localização precisa da mochila a qualquer momento, com atualizações em tempo real no seu
-                        smartphone.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="icon-box"><i class="fas fa-bell"></i></div>
-                <div class="card-text">
-                    <h3>Notificações Inteligentes</h3>
-                    <p>Alertas automáticos quando a mochila é aberta fora do horário programado ou em locais não
-                        autorizados.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="icon-box"><i class="fas fa-history"></i></div>
-                <div class="card-text">
-                    <h3>Histórico Completo</h3>
-                    <p>Acompanhe todo o trajeto percorrido com histórico detalhado de movimentação e paradas.
+        </section>
+        
+        <section class="tech">
+            <h2>
+                Tecnologia que <span class="highlight-pink">Protege</span>
+            </h2>
+            <p>
+                Descubra como nossa mochila inteligente revoluciona a segurança infantil com recursos inovadores
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                
+                <div class="tech-card-container">
+                    <div class="flex items-start mb-4">
+                        <div class="tech-icon-box">
+                               <i class="fas fa-map-marker-alt"></i>
+                        </div> 
+                        <div class="flex-grow">
+                            <h3 class="tech-title">Rastreamento GPS em Tempo Real</h3>
+                        </div>
+                    </div>
+                    <p class="tech-description">
+                        Localização precisa da mochila a qualquer momento, com atualizações em tempo real no seu smartphone.
                     </p>
                 </div>
 
@@ -651,17 +628,6 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
                 &copy; 2024 Geosync. Todos os direitos reservados. | Tecnologia e Segurança
             </div>
         </div>
-    </section>
-    </div>
-    </div>
-    <script src="script.js"></script>
-            <script>
-                document.getElementById('btnQueroConhecer').addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.getElementById('tech-section').scrollIntoView({ behavior: 'smooth' });
-                });
-            </script>
-</body>
     </footer>
     
     <script>
@@ -672,7 +638,6 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
             const mobileMenu = document.getElementById('mobile-menu');
             const hamburgerIcon = document.getElementById('hamburger-icon');
             const closeIcon = document.getElementById('close-icon');
->>>>>>> 4ea554e743919c024a53c3e027724f27e0e4e51c
 
             mobileMenu.classList.toggle('hidden'); 
             hamburgerIcon.classList.toggle('hidden'); 
