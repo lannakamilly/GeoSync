@@ -1,13 +1,80 @@
+<?php
+// ARQUIVO: login.php
+session_start();
+// Certifique-se de que o arquivo 'conexao.php' existe e tem as credenciais corretas.
+include 'conexao.php'; 
+
+$mensagem = ""; // Variável para armazenar a mensagem de status/erro
+
+// Verifica se o usuário JÁ está logado (se 'usuario' está na sessão)
+if (isset($_SESSION['usuario'])) {
+    header("Location: index.php");
+    exit();
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Coleta e limpa os dados do POST
+    // É CRUCIAL que o 'name' dos inputs no HTML corresponda a 'email' e 'senha' aqui.
+    $email = trim($_POST['email']);
+    $senha = $_POST['senha'];
+
+    // 1. Prepara a consulta SQL
+    // Selecionamos o ID e o hash da senha para verificação
+    $stmt = $conn->prepare("SELECT id, senha FROM usuarios WHERE email = ?");
+    
+    // Verifica se a preparação da query falhou (problema no SQL ou conexão)
+    if ($stmt === false) {
+         $mensagem = "Erro interno do servidor ao preparar a busca. Tente novamente.";
+    } else {
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        // Obtém o resultado para poder verificar o número de linhas
+        $stmt->store_result(); 
+
+        if ($stmt->num_rows > 0) {
+            // 2. Usuário encontrado. Busca o hash da senha
+            $stmt->bind_result($idUsuario, $senhaHash);
+            $stmt->fetch();
+
+            // 3. Verifica a senha com o hash
+            if (password_verify($senha, $senhaHash)) {
+                // SUCESSO NO LOGIN!
+                
+                // Define as variáveis de sessão (use o ID para ser mais robusto)
+                $_SESSION['usuario_id'] = $idUsuario;
+                $_SESSION['usuario'] = $email; // Mantendo para compatibilidade
+
+                // Redireciona para a página principal
+                header("Location: index.php");
+                exit(); 
+
+            } else {
+                // Senha incorreta
+                $mensagem = "Senha incorreta!";
+            }
+        } else {
+            // Usuário não encontrado
+            $mensagem = "Usuário não encontrado!";
+        }
+
+        $stmt->close();
+    }
+}
+
+// Fecha a conexão (se aberta)
+if (isset($conn)) {
+    $conn->close();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-
-<body>
+    <link rel="shortcut icon" href="./imagens/GeoSync-bg.png" type="image/x-icon">
+    <title>Geosync - Login</title>
     <style>
         body {
             box-sizing: border-box;
@@ -31,262 +98,6 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 27, 122, 0.38);
             margin: 50px;
-        }
-
-        .innovation-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 27, 122, 0.15);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 27, 122, 0.3);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-            color: #e2e8f0;
-        }
-
-        .innovation-badge:hover {
-            background: rgba(255, 27, 122, 0.25);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(255, 27, 122, 0.2);
-        }
-
-        .innovation-badge svg {
-            color: #ff1b7a;
-        }
-
-        .hero-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: #e2e8f0;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, #ff1b7a 0%, #a8245f 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientPulse 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes gradientPulse {
-            0% {
-                filter: brightness(1);
-            }
-
-            100% {
-                filter: brightness(1.2);
-            }
-        }
-
-        .hero-description {
-            font-size: 1.125rem;
-            line-height: 1.7;
-            margin-bottom: 2.5rem;
-            color: #e2e8f0;
-            opacity: 0.9;
-            max-width: 500px;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: linear-gradient(135deg, #ff1b7a 0%, #a8245f 100%);
-            color: #e2e8f0;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 27, 122, 0.3);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(255, 27, 122, 0.4);
-            background: linear-gradient(135deg, #a8245f 0%, #ff1b7a 100%);
-        }
-
-        .hero-visual {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .backpack-container {
-            position: relative;
-            width: 300px;
-            height: 400px;
-            background: linear-gradient(145deg, #1c2231, #191c28);
-            border-radius: 30px;
-            border: 2px solid rgba(236, 72, 153, 0.4);
-            box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 27, 122, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .backpack-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 27, 122, 0.05) 50%, transparent 70%);
-            animation: shimmer 3s ease-in-out infinite;
-        }
-
-        @keyframes shimmer {
-            0% {
-                transform: translateX(-100%);
-            }
-
-            100% {
-                transform: translateX(100%);
-            }
-        }
-
-        .backpack-svg {
-            width: 200px;
-            height: 250px;
-            filter: drop-shadow(0 10px 20px rgba(255, 27, 122, 0.2));
-            z-index: 1;
-        }
-
-        .floating-icon {
-            position: absolute;
-            background: rgba(28, 34, 49, 0.9);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(236, 72, 153, 0.4);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(255, 27, 122, 0.2);
-            animation: float 3s ease-in-out infinite;
-            color: #ff1b7a;
-        }
-
-        .floating-icon.security {
-            top: 20%;
-            left: -10%;
-            animation-delay: 0s;
-        }
-
-        .floating-icon.location {
-            bottom: 20%;
-            right: -10%;
-            animation-delay: 1.5s;
-        }
-
-        .floating-icon.notification {
-            top: 50%;
-            right: -15%;
-            animation-delay: 3s;
-        }
-
-        .floating-icon:hover {
-            background: rgba(255, 27, 122, 0.2);
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 27, 122, 0.3);
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            33% {
-                transform: translateY(-10px) rotate(2deg);
-            }
-
-            66% {
-                transform: translateY(5px) rotate(-1deg);
-            }
-        }
-
-        .tech-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image:
-                linear-gradient(rgba(255, 27, 122, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 27, 122, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-        }
-
-        .glow-effect {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255, 27, 122, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: pulse 4s ease-in-out infinite;
-            pointer-events: none;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                transform: translate(-50%, -50%) scale(1);
-                opacity: 0.5;
-            }
-
-            50% {
-                transform: translate(-50%, -50%) scale(1.1);
-                opacity: 0.8;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero-container {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-                text-align: center;
-            }
-
-            .hero-visual {
-                order: -1;
-            }
-
-            .backpack-container {
-                width: 250px;
-                height: 320px;
-            }
-
-            .backpack-svg {
-                width: 160px;
-                height: 200px;
-            }
-
-            .floating-icon {
-                width: 50px;
-                height: 50px;
-            }
         }
 
         .logo {
@@ -430,6 +241,8 @@
             color: #ff1b7a;
         }
 
+        /* Removi o CSS extra de "inovação" para focar no formulário */
+
         @media (max-width: 480px) {
             .container {
                 margin: 20px;
@@ -437,24 +250,26 @@
             }
         }
     </style>
+</head>
+
+<body>
     <div class="container">
-        <!-- Formulário de Login -->
         <div id="loginForm" class="form-container active">
             <div class="logo">
-                <img src="./imagens/GeoSync-LOGO1.png" alt="">
+                <img src="./imagens/GeoSync-LOGO1.png" alt="GeoSync Logo">
             </div>
 
             <h2 class="form-title">Entrar</h2>
 
-            <form onsubmit="handleLogin(event)">
+            <form method="POST">
                 <div class="form-group">
                     <label for="loginEmail">E-mail</label>
-                    <input type="email" id="loginEmail" placeholder="seu@email.com" required>
+                    <input type="email" id="loginEmail" name="email" placeholder="seu@email.com" required>
                 </div>
 
                 <div class="form-group">
                     <label for="loginPassword">Senha</label>
-                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                    <input type="password" id="loginPassword" name="senha" placeholder="••••••••" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Entrar</button>
@@ -484,65 +299,13 @@
 
             <div class="switch-form">
                 Não tem uma conta? <a href="cadastro.php">Cadastre-se</a>
-                <!-- onclick="showRegister()" -->
             </div>
         </div>
-
-        <!-- Formulário de Cadastro -->
-
     </div>
 
     <script>
-        function showLogin() {
-            document.getElementById('loginForm').classList.add('active');
-            document.getElementById('registerForm').classList.remove('active');
-        }
-
-        function showRegister() {
-            document.getElementById('registerForm').classList.add('active');
-            document.getElementById('loginForm').classList.remove('active');
-        }
-
-        function handleLogin(event) {
-            event.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-
-            // Simulação de login
-            if (email && password) {
-                alert(`Login realizado com sucesso!\nE-mail: ${email}`);
-                // Aqui você integraria com sua API de autenticação
-            }
-        }
-
-        function handleRegister(event) {
-            event.preventDefault();
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-
-            if (password !== confirmPassword) {
-                alert('As senhas não coincidem!');
-                return;
-            }
-
-            // Simulação de cadastro
-            if (name && email && password) {
-                alert(`Conta criada com sucesso!\nNome: ${name}\nE-mail: ${email}`);
-                // Aqui você integraria com sua API de cadastro
-                showLogin(); // Volta para a tela de login após cadastro
-            }
-        }
-
         function loginWithGoogle() {
             alert('Redirecionando para login com Google...\n\nEm uma aplicação real, isso abriria o OAuth do Google.');
-            // Em uma aplicação real, você usaria a API do Google OAuth
-        }
-
-        function registerWithGoogle() {
-            alert('Redirecionando para cadastro com Google...\n\nEm uma aplicação real, isso abriria o OAuth do Google.');
-            // Em uma aplicação real, você usaria a API do Google OAuth
         }
 
         function showForgotPassword() {
@@ -551,8 +314,14 @@
                 alert(`Link de recuperação enviado para: ${email}\n\nVerifique sua caixa de entrada!`);
             }
         }
+        
+        // === BLOCO DE CÓDIGO PARA O ALERT DE ERRO ===
+        <?php if (!empty($mensagem)): ?>
+            // Se a variável $mensagem do PHP não estiver vazia, exibe o alert
+            alert("Erro de Login: <?php echo htmlspecialchars($mensagem); ?>");
+        <?php endif; ?>
+        // ===========================================
     </script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'984c5116525e6ea9',t:'MTc1ODgyMjEzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>
 
 </html>

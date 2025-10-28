@@ -1,10 +1,80 @@
+<?php
+// Define as credenciais de conexão
+$host = "localhost";
+$user = "root";    // seu usuário do MySQL
+$pass = "";        // sua senha do MySQL
+$dbname = "geosync";
+
+$mensagem = ""; // Variável para armazenar o status da operação
+include 'conexao.php';
+// Tenta estabelecer a conexão
+$conn = new mysqli($host, $user, $pass, $dbname);
+
+// Verifica a conexão
+if ($conn->connect_error) {
+    die("Conexão falhou: " . $conn->connect_error);
+}
+
+// Verifica se o formulário foi submetido (POST)
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Coleta e limpa os dados do POST
+    $nome = trim($_POST['nome']);
+    $email = trim($_POST['email']);
+    $senha = $_POST['senha'];
+    $confirmaSenha = $_POST['confirmPassword'];
+
+    // 1. Validação de Senha
+    if ($senha !== $confirmaSenha) {
+        $mensagem = "<span style='color: red;'>As senhas não coincidem!</span>";
+    } elseif (strlen($senha) < 6) {
+        $mensagem = "<span style='color: red;'>A senha deve ter pelo menos 6 caracteres!</span>";
+    } else {
+        // Criptografa a senha de forma segura
+        $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
+
+        // 2. Prepara e executa a inserção no banco
+        // Note que o nome da coluna na sua tabela é 'nome', não 'nome_completo'
+        $stmt = $conn->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (?, ?, ?)");
+        
+        // Verifica se a preparação da query falhou
+        if ($stmt === false) {
+             $mensagem = "<span style='color: red;'>Erro ao preparar a query: " . $conn->error . "</span>";
+        } else {
+            // 'sss' indica que os 3 parâmetros são strings
+            $stmt->bind_param("sss", $nome, $email, $senhaHash);
+
+            if ($stmt->execute()) {
+                // Sucesso
+                $mensagem = "Conta criada com sucesso! Redirecionando para o login...";
+                // Redireciona após 3 segundos
+                header("refresh:3; url=login.php"); 
+            } else {
+                // Erro (ex: e-mail duplicado)
+                if ($conn->errno === 1062) {
+                    $mensagem = "<span style='color: red;'>Este e-mail já está cadastrado!</span>";
+                } else {
+                    $mensagem = "<span style='color: red;'>Erro: " . $conn->error . "</span>";
+                }
+            }
+
+            $stmt->close();
+        }
+    }
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+     <link rel="shortcut icon" href="./imagens/GeoSync-bg.png" type="image/x-icon">
+    <title>Geosync-cadastro</title>
     <style>
+        /* (Seu CSS original deve vir aqui) */
+        /* ... (Conteúdo do CSS) ... */
         body {
             box-sizing: border-box;
             margin: 0;
@@ -163,7 +233,7 @@
             margin-bottom: 20px;
             color: #e2e8f0;
             text-align: center;
-            display: none;
+            /* Removido display: none para exibir a mensagem PHP */
         }
 
         @media (max-width: 480px) {
@@ -182,29 +252,31 @@
         
         <h2 class="form-title">Criar Conta</h2>
         
-        <div id="successMessage" class="success-message">
-            Conta criada com sucesso! 
-        </div>
+        <?php if (!empty($mensagem)): ?>
+            <div id="statusMessage" class="success-message" style="display: block;">
+                <?php echo $mensagem; ?>
+            </div>
+        <?php endif; ?>
         
-        <form onsubmit="handleRegister(event)">
+        <form method="POST">
             <div class="form-group">
                 <label for="registerName">Nome completo</label>
-                <input type="text" id="registerName" placeholder="Seu nome" required>
+                <input type="text" id="registerName" name="nome" placeholder="Seu nome" required>
             </div>
             
             <div class="form-group">
                 <label for="registerEmail">E-mail</label>
-                <input type="email" id="registerEmail" placeholder="seu@email.com" required>
+                <input type="email" id="registerEmail" name="email" placeholder="seu@email.com" required>
             </div>
             
             <div class="form-group">
                 <label for="registerPassword">Senha</label>
-                <input type="password" id="registerPassword" placeholder="••••••••" required minlength="6">
+                <input type="password" id="registerPassword" name="senha" placeholder="••••••••" required minlength="6">
             </div>
             
             <div class="form-group">
                 <label for="confirmPassword">Confirmar senha</label>
-                <input type="password" id="confirmPassword" placeholder="••••••••" required minlength="6">
+                <input type="password" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required minlength="6">
             </div>
             
             <button type="submit" class="btn btn-primary">Criar Conta</button>
@@ -225,59 +297,17 @@
         </button>
         
         <div class="switch-form">
-            Já tem uma conta? <a href="#" onclick="showLogin()">Entrar</a>
+            Já tem uma conta? <a href="login.php">Entrar</a>
         </div>
     </div>
 
     <script>
-        function handleRegister(event) {
-            event.preventDefault();
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                alert('As senhas não coincidem!');
-                return;
-            }
-            
-            if (password.length < 6) {
-                alert('A senha deve ter pelo menos 6 caracteres!');
-                return;
-            }
-            
-            // Simulação de cadastro bem-sucedido
-            if (name && email && password) {
-                document.getElementById('successMessage').style.display = 'block';
-                
-                // Limpa o formulário
-                document.getElementById('registerName').value = '';
-                document.getElementById('registerEmail').value = '';
-                document.getElementById('registerPassword').value = '';
-                document.getElementById('confirmPassword').value = '';
-                
-                // Esconde a mensagem após 3 segundos
-                setTimeout(() => {
-                    document.getElementById('successMessage').style.display = 'none';
-                }, 3000);
-                
-                // Aqui você integraria com sua API de cadastro
-                console.log('Dados do cadastro:', { name, email, password });
-            }
-        }
-
         function registerWithGoogle() {
             alert('Redirecionando para cadastro com Google...\n\nEm uma aplicação real, isso abriria o OAuth do Google.');
-            // Em uma aplicação real, você usaria a API do Google OAuth
-            // window.open('https://accounts.google.com/oauth/authorize?...', '_blank');
         }
 
-        function showLogin() {
-            alert('Redirecionando para a página de login...');
-            // Em uma aplicação real, você redirecionaria para a página de login
-            // window.location.href = '/login';
-        }
+        // Função handleRegister (simulação) foi removida ou não será mais usada
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'984cb71811130ed6',t:'MTc1ODgyNjMxMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+    </body>
 </html>
