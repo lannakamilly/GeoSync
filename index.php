@@ -218,37 +218,35 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
         .carousel-btn.prev { left: 0; }
         .carousel-btn.next { right: 0; }
 
-        .carousel-indicators {
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 0.5rem;
-            margin-top: 1.5rem;
-        }
-        .indicator {
-            width: 10px;
-            height: 10px;
-            background-color: #6b7280;
-            border-radius: 50%;
             cursor: pointer;
-            transition: background-color 0.3s;
+            z-index: 10;
+            font-size: 1.1rem;
+            border-radius: 50%;
+            opacity: 0.95;
+            transition: transform 0.18s, opacity 0.18s, background 0.18s;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.32);
         }
-        .indicator.active {
-            background-color: var(--color-accent);
+        .carousel-btn:hover {
+            transform: translateY(-50%) scale(1.06);
+            opacity: 1;
+            background: rgba(0, 0, 0, 0.78);
         }
+        /* Posiciona um botão em cada ponta (esquerda/direita) do card de avaliações */
+        .carousel-btn.prev { left: 12px; }
+        .carousel-btn.next { right: 12px; left: auto; }
     </style>
-
-    <script>
-        // Configuração customizada do Tailwind para usar as cores
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#202937',
-                        accent: '#ff2178'
-                    }
-                }
-            }
-        }
     </script>
 </head>
 
@@ -570,7 +568,7 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
                         </svg>
                         <div>
                             <span class="text-xl font-bold">Geosync</span>
-                            <p class="text-gray-400 text-xs">Smart Security</p>
+                            
                         </div>
                     </div>
                     <p class="text-gray-400 leading-relaxed max-w-xs">
@@ -609,15 +607,15 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
                 <div>
                     <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Redes Sociais</h4>
                     <div class="flex space-x-4 mb-4">
-                        <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
                             <i class="fab fa-facebook-f text-white"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        </a> -->
+                        <a href="https://www.instagram.com/geosync.web/?utm_source=ig_web_button_share_sheet" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center" target="_blank">
                             <i class="fab fa-instagram text-white"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
                             <i class="fab fa-linkedin-in text-white"></i>
-                        </a>
+                        </a> -->
                     </div>
                     <p class="text-gray-400 text-xs mt-6">Siga-nos para novidades e atualizações</p>
                 </div>

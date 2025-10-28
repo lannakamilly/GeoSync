@@ -613,7 +613,7 @@
                         </svg>
                         <div>
                             <span class="text-xl font-bold">Geosync</span>
-                            <p class="text-gray-400 text-xs">Smart Security</p>
+                            
                         </div>
                     </div>
                     <p class="text-gray-400 leading-relaxed max-w-xs">
@@ -652,15 +652,15 @@
                 <div>
                     <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Redes Sociais</h4>
                     <div class="flex space-x-4 mb-4">
-                        <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
                             <i class="fab fa-facebook-f text-white"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        </a> -->
+                        <a href="https://www.instagram.com/geosync.web/?utm_source=ig_web_button_share_sheet" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center" target="_blank">
                             <i class="fab fa-instagram text-white"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
                             <i class="fab fa-linkedin-in text-white"></i>
-                        </a>
+                        </a> -->
                     </div>
                     <p class="text-gray-400 text-xs mt-6">Siga-nos para novidades e atualizações</p>
                 </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="shortcut icon" href="./imagens/GeoSync-bg.png" type="image/x-icon">
-    
+
     <script>
         // Configuração customizada do Tailwind para usar as cores
         tailwind.config = {
@@ -30,50 +31,77 @@
             --color-card-bg: #192230;
         }
 
-        .bg-primary { background-color: var(--color-primary); }
-        .bg-accent { background-color: var(--color-accent); }
-        .text-accent { color: var(--color-accent); }
-        .border-accent { border-color: var(--color-accent); }
-        .hover-accent:hover { background-color: var(--color-accent); }
-        .gradient-bg { 
-            background: linear-gradient(135deg, #202937 0%, #2a3441 100%); 
+        .bg-primary {
+            background-color: var(--color-primary);
         }
-        .card-hover { 
-            transition: all 0.3s ease; 
-            background-color: #263140; /* Fundo do card um pouco mais claro */
+
+        .bg-accent {
+            background-color: var(--color-accent);
         }
-        .card-hover:hover { 
-            transform: translateY(-8px); 
-            box-shadow: 0 20px 40px rgba(255, 33, 120, 0.2); 
+
+        .text-accent {
+            color: var(--color-accent);
+        }
+
+        .border-accent {
+            border-color: var(--color-accent);
+        }
+
+        .hover-accent:hover {
+            background-color: var(--color-accent);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #202937 0%, #2a3441 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s ease;
+            background-color: #263140;
+            /* Fundo do card um pouco mais claro */
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 33, 120, 0.2);
             background-color: #2c394a;
         }
 
         /* Animação para o ícone de destaque */
-        .feature-icon { 
+        .feature-icon {
             background: linear-gradient(135deg, var(--color-accent) 0%, #ff6b9d 100%);
             animation: glow 3s ease-in-out infinite alternate;
         }
+
         @keyframes glow {
-            from { box-shadow: 0 0 15px rgba(255, 33, 120, 0.3); }
-            to { box-shadow: 0 0 25px rgba(255, 33, 120, 0.6); }
+            from {
+                box-shadow: 0 0 15px rgba(255, 33, 120, 0.3);
+            }
+
+            to {
+                box-shadow: 0 0 25px rgba(255, 33, 120, 0.6);
+            }
         }
 
         /* Animação de Scroll Reveal */
         .scroll-reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Curva suave */
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            /* Curva suave */
         }
+
         .scroll-reveal.revealed {
             opacity: 1;
             transform: translateY(0);
         }
-        
+
         /* Estilo do ícone de rede social no footer */
         .social-icon-hover {
-            background-color: rgba(15, 23, 42, 0.5); 
+            background-color: rgba(15, 23, 42, 0.5);
             transition: all 0.3s ease;
         }
+
         .social-icon-hover:hover {
             background-color: var(--color-accent);
         }
@@ -94,22 +122,26 @@
                 <div class="flex items-center space-x-6">
 
                     <div class="hidden md:flex space-x-8">
-                        <a href="./index.php" class="hover:text-accent transition-colors">Início</a> 
+                        <a href="./index.php" class="hover:text-accent transition-colors">Início</a>
                         <a href="../GeoSync/comoFunc.php" class="text-accent font-medium transition-colors border-b-2 border-accent pb-1">Saiba Mais</a>
                         <a href="./produtos.php" class="hover:text-accent transition-colors">Produtos</a>
                         <a href="./compras.php" class="hover:text-accent transition-colors">Carrinho</a>
                     </div>
 
-                    <a href="./login.php" class="hidden md:block text-white hover:text-accent transition-colors" title="Login / Perfil">
+                    <a href="./login.php" class="hidden md:block text-white hover:text-accent transition-colors"
+                        title="Login / Perfil">
                         <i class="fas fa-user-circle text-2xl"></i>
                     </a>
 
                     <button class="md:hidden hover:text-accent transition-colors" onclick="toggleMobileMenu()">
                         <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
                 </div>
@@ -119,11 +151,17 @@
 
         <div id="mobile-menu" class="hidden md:hidden">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col bg-gray-900 border-t border-gray-700">
-                <a href="./index.php" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Início</a>
-                <a href="../GeoSync/comoFunc.php" class="block px-3 py-2 rounded-md text-base font-medium text-accent bg-gray-700 transition-colors">Saiba Mais</a>
-                <a href="./produtos.php" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Produtos</a>
-                <a href="./compras.php" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Carrinho</a>
-                <a href="./login.php" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-800 hover:bg-gray-700 transition-colors">
+                <a href="./index.php"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Início</a>
+                <a href="../GeoSync/comoFunc.php"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-accent bg-gray-700 transition-colors">Saiba
+                    Mais</a>
+                <a href="./produtos.php"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Produtos</a>
+                <a href="./compras.php"
+                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Carrinho</a>
+                <a href="./login.php"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-800 hover:bg-gray-700 transition-colors">
                     <i class="fas fa-sign-in-alt mr-2"></i> Login / Criar Conta
                 </a>
             </div>
@@ -136,18 +174,21 @@
                     Como <span class="text-accent">Funciona</span>
                 </h2>
                 <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
-                    Descubra a tecnologia revolucionária por trás das mochilas inteligentes Geosync. 
+                    Descubra a tecnologia revolucionária por trás das mochilas inteligentes Geosync.
                     Segurança, inovação e tranquilidade em um só produto.
                 </p>
             </div>
-            
+
             <div class="flex justify-center">
-                 <div class="relative w-64 h-64">
-                    <img src="./imagens/geosync-bag.jpeg" alt="Mochila GeoSync" class="w-full h-full object-contain tech-animation rounded-xl shadow-2xl" onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" />
-                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center border-4 border-primary">
+                <div class="relative w-64 h-64">
+                    <img src="./imagens/geosync-bag.jpeg" alt="Mochila GeoSync"
+                        class="w-full h-full object-contain tech-animation rounded-xl shadow-2xl"
+                        onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" />
+                    <div
+                        class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center border-4 border-primary">
                         <i class="fas fa-wifi text-white text-sm"></i>
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
     </section>
@@ -247,13 +288,15 @@
             <div class="max-w-4xl mx-auto">
                 <div class="relative">
                     <div class="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-accent opacity-30"></div>
-                    
+
                     <div class="scroll-reveal flex items-center mb-12">
                         <div class="w-1/2 pr-8 text-right">
                             <h4 class="text-2xl font-bold mb-3">1. Detecção de Movimento</h4>
-                            <p class="text-gray-300">Sensores integrados detectam quando a mochila está em movimento ou foi aberta</p>
+                            <p class="text-gray-300">Sensores integrados detectam quando a mochila está em movimento ou
+                                foi aberta</p>
                         </div>
-                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center relative z-10 shadow-lg">
+                        <div
+                            class="w-16 h-16 bg-accent rounded-full flex items-center justify-center relative z-10 shadow-lg">
                             <i class="fas fa-running text-white text-xl"></i>
                         </div>
                         <div class="w-1/2 pl-8">
@@ -275,21 +318,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center relative z-10 shadow-lg">
+                        <div
+                            class="w-16 h-16 bg-accent rounded-full flex items-center justify-center relative z-10 shadow-lg">
                             <i class="fas fa-satellite text-white text-xl"></i>
                         </div>
                         <div class="w-1/2 pl-8">
                             <h4 class="text-2xl font-bold mb-3">2. Captura de Localização</h4>
-                            <p class="text-gray-300">Sistema GPS captura coordenadas precisas e envia para nossos servidores</p>
+                            <p class="text-gray-300">Sistema GPS captura coordenadas precisas e envia para nossos
+                                servidores</p>
                         </div>
                     </div>
 
                     <div class="scroll-reveal flex items-center mb-12">
                         <div class="w-1/2 pr-8 text-right">
                             <h4 class="text-2xl font-bold mb-3">3. Processamento Inteligente</h4>
-                            <p class="text-gray-300">IA analisa padrões e identifica situações que requerem atenção dos pais</p>
+                            <p class="text-gray-300">IA analisa padrões e identifica situações que requerem atenção dos
+                                pais</p>
                         </div>
-                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center relative z-10 shadow-lg">
+                        <div
+                            class="w-16 h-16 bg-accent rounded-full flex items-center justify-center relative z-10 shadow-lg">
                             <i class="fas fa-brain text-white text-xl"></i>
                         </div>
                         <div class="w-1/2 pl-8">
@@ -311,12 +358,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="w-16 h-16 bg-accent rounded-full flex items-center justify-center relative z-10 shadow-lg">
+                        <div
+                            class="w-16 h-16 bg-accent rounded-full flex items-center justify-center relative z-10 shadow-lg">
                             <i class="fas fa-bell text-white text-xl"></i>
                         </div>
                         <div class="w-1/2 pl-8">
                             <h4 class="text-2xl font-bold mb-3">4. Notificação Instantânea</h4>
-                            <p class="text-gray-300">Pais recebem alertas em tempo real no app e podem acompanhar pelo dashboard</p>
+                            <p class="text-gray-300">Pais recebem alertas em tempo real no app e podem acompanhar pelo
+                                dashboard</p>
                         </div>
                     </div>
                 </div>
@@ -327,17 +376,21 @@
     <section class="py-20 bg-gray-800">
         <div class="container mx-auto px-6">
             <div class="scroll-reveal text-center mb-16">
-                <h3 class="text-4xl font-bold mb-6">Impacto Positivo para <span class="text-accent">Toda Família</span></h3>
+                <h3 class="text-4xl font-bold mb-6">Impacto Positivo para <span class="text-accent">Toda Família</span>
+                </h3>
                 <p class="text-xl text-gray-300">Benefícios que transformam o dia a dia e trazem tranquilidade</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="scroll-reveal bg-gradient-to-br from-[#ff2178] to-[#ff6b9d] rounded-2xl p-8 text-center card-hover">
-                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div
+                    class="scroll-reveal bg-gradient-to-br from-[#ff2178] to-[#ff6b9d] rounded-2xl p-8 text-center card-hover">
+                    <div
+                        class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-shield-alt text-white text-3xl"></i>
                     </div>
                     <h4 class="text-2xl font-bold mb-4">Segurança Total</h4>
-                    <p class="text-lg mb-6">Monitoramento 24/7 com tecnologia de ponta para proteger o que mais importa.</p>
+                    <p class="text-lg mb-6">Monitoramento 24/7 com tecnologia de ponta para proteger o que mais importa.
+                    </p>
                     <div class="space-y-3">
                         <div class="flex items-center justify-center space-x-2">
                             <i class="fas fa-check text-white-300"></i>
@@ -354,8 +407,10 @@
                     </div>
                 </div>
 
-                <div class="scroll-reveal bg-gradient-to-br from-[#ff2178] to-[#ff6b9d] rounded-2xl p-8 text-center card-hover">
-                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div
+                    class="scroll-reveal bg-gradient-to-br from-[#ff2178] to-[#ff6b9d] rounded-2xl p-8 text-center card-hover">
+                    <div
+                        class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-heart text-white text-3xl"></i>
                     </div>
                     <h4 class="text-2xl font-bold mb-4">Tranquilidade para Pais</h4>
@@ -376,8 +431,10 @@
                     </div>
                 </div>
 
-                <div class="scroll-reveal bg-gradient-to-br from-[#ff2178] to-[#ff6b9d] rounded-2xl p-8 text-center card-hover">
-                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <div
+                    class="scroll-reveal bg-gradient-to-br from-[#ff2178] to-[#ff6b9d] rounded-2xl p-8 text-center card-hover">
+                    <div
+                        class="w-20 h-20 bg-white bg-opacity-20 rounded-2xl flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-mobile-alt text-white text-3xl"></i>
                     </div>
                     <h4 class="text-2xl font-bold mb-4">Praticidade no Dia a Dia</h4>
@@ -409,17 +466,17 @@
                     Junte-se a milhares de famílias que já confiam na tecnologia Geosync para proteger seus filhos
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="./produtos.php" class="bg-accent hover:bg-pink-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors">
+                    <a href="./produtos.php"
+                        class="bg-accent hover:bg-pink-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors">
                         <i class="fas fa-shopping-cart mr-2"></i>
                         Ver Produtos
                     </a>
-               <button
-    class="border-2 border-accent text-accent hover:bg-accent hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors"
-    onclick="window.location.href = 'video.php';"
->
-    <i class="fas fa-play mr-2"></i>
-    Ver Demo
-</button>
+                    <button
+                        class="border-2 border-accent text-accent hover:bg-accent hover:text-white px-8 py-4 rounded-xl font-bold text-lg transition-colors"
+                        onclick="window.location.href = 'video.php';">
+                        <i class="fas fa-play mr-2"></i>
+                        Ver Demo
+                    </button>
                 </div>
             </div>
         </div>
@@ -431,13 +488,15 @@
 
                 <div class="col-span-2 md:col-span-1">
                     <div class="flex items-center mb-6">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-3">
-                            <path d="M16 0L31.547 8.27214V23.7279L16 32L0.453018 23.7279V8.27214L16 0Z" fill="#FF2178"/>
-                            <circle cx="16" cy="12" r="4" fill="#192230"/>
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="mr-3">
+                            <path d="M16 0L31.547 8.27214V23.7279L16 32L0.453018 23.7279V8.27214L16 0Z"
+                                fill="#FF2178" />
+                            <circle cx="16" cy="12" r="4" fill="#192230" />
                         </svg>
                         <div>
                             <span class="text-xl font-bold">Geosync</span>
-                            <p class="text-gray-400 text-xs">Smart Security</p>
+                            
                         </div>
                     </div>
                     <p class="text-gray-400 leading-relaxed max-w-xs">
@@ -448,8 +507,10 @@
                 <div>
                     <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Navegação</h4>
                     <ul class="space-y-3">
-                        <li><a href="./index.php" class="text-gray-400 hover:text-white transition-colors">Página Inicial</a></li>
-                        <li><a href="./produtos.php" class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
+                        <li><a href="./index.php" class="text-gray-400 hover:text-white transition-colors">Página
+                                Inicial</a></li>
+                        <li><a href="./produtos.php"
+                                class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tecnologia</a></li>
                         <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Suporte</a></li>
                     </ul>
@@ -476,15 +537,16 @@
                 <div>
                     <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Redes Sociais</h4>
                     <div class="flex space-x-4 mb-4">
-                        <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
                             <i class="fab fa-facebook-f text-white"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        </a> -->
+                        <a href="https://www.instagram.com/geosync.web/?utm_source=ig_web_button_share_sheet"
+                            class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center" target="_blank">
                             <i class="fab fa-instagram text-white"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
+                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
                             <i class="fab fa-linkedin-in text-white"></i>
-                        </a>
+                        </a> -->
                     </div>
                     <p class="text-gray-400 text-xs mt-6">Siga-nos para novidades e atualizações</p>
                 </div>
@@ -506,9 +568,9 @@
             const hamburgerIcon = document.getElementById('hamburger-icon');
             const closeIcon = document.getElementById('close-icon');
 
-            mobileMenu.classList.toggle('hidden'); 
-            hamburgerIcon.classList.toggle('hidden'); 
-            closeIcon.classList.toggle('hidden');     
+            mobileMenu.classList.toggle('hidden');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
         }
 
         // **********************************************
@@ -516,11 +578,11 @@
         // **********************************************
         function revealOnScroll() {
             const reveals = document.querySelectorAll('.scroll-reveal');
-            
+
             reveals.forEach(element => {
                 const elementTop = element.getBoundingClientRect().top;
                 const elementVisible = 150; // Quantos pixels de distância do topo da viewport para revelar
-                
+
                 if (elementTop < window.innerHeight - elementVisible) {
                     element.classList.add('revealed');
                 }
@@ -528,9 +590,10 @@
         }
 
         window.addEventListener('scroll', revealOnScroll);
-        
+
         // Revelar elementos já visíveis no carregamento
         document.addEventListener('DOMContentLoaded', revealOnScroll);
     </script>
 </body>
+
 </html>
