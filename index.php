@@ -86,10 +86,15 @@
                     </p>
 
                     <!-- Botão -->
-                    <button
+                    <!-- <button
                         class="custom-btn-pink hover:custom-btn-pink text-white font-semibold px-5 py-3 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
                         Quero conhecer
-                    </button>
+                    </button> -->
+                        <button
+                            id="btnQueroConhecer"
+                            class="custom-btn-pink hover:custom-btn-pink text-white font-semibold px-7 py-4 rounded-lg transition-colors duration-300 shadow-lg hover:shadow-xl">
+                            Quero conhecer
+                        </button>
                 </div>
 
                 <!-- Imagem à direita -->
@@ -157,6 +162,7 @@
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'984cd0bd5674f191',t:'MTc1ODgyNzM2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 
     <section class="tech">
+        <section class="tech" id="tech-section">
         <h2>
             Tecnologia que <span class="highlight-pink">Protege</span>
         </h2>
@@ -306,6 +312,12 @@
     </div>
     </div>
     <script src="script.js"></script>
+            <script>
+                document.getElementById('btnQueroConhecer').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('tech-section').scrollIntoView({ behavior: 'smooth' });
+                });
+            </script>
 </body>
 
 </html>

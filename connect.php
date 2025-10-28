@@ -11,5 +11,19 @@ $supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 // Instantiate the Supabase client using the PHPSupabase\Service class
 $client = new Service($supabaseKey, $supabaseUrl);
 
+// Usando a classe Database da PHPSupabase
+$db = $client->initializeDatabase('users', 'id');
+$db->fetchAll();
+$user = $db->getFirstResult();
+if (isset($user->id)) {
+    $id = $user->id;
+    $nome = $user->nome;
+    $email = $user->email;
+    $senha = $user->senha;
+    $cpf = $user->cpf;
+    $tel = $user->tel;
+    // Agora você pode usar as variáveis $id, $nome, $email, $senha, $cpf, $tel
+}
+
 
 ?>

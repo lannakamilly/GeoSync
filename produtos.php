@@ -393,10 +393,26 @@
                         
                         <!-- Botões de Ação -->
                         <div class="space-y-4">
-                            <button class="w-full bg-accent hover:bg-pink-600 text-white py-4 px-6 rounded-xl font-bold text-lg transition-colors shadow-lg">
+                            <button id="btnAddCarrinho" class="w-full bg-accent hover:bg-pink-600 text-white py-4 px-6 rounded-xl font-bold text-lg transition-colors shadow-lg">
                                 <i class="fas fa-shopping-cart mr-3"></i>
                                 Adicionar ao Carrinho
                             </button>
+<script>
+    // Simulação de verificação de login (substitua por sua lógica real)
+    function usuarioEstaLogado() {
+        // Exemplo: verifique se existe um cookie ou variável de sessão
+        // Aqui está um exemplo fictício, ajuste conforme seu backend:
+        return <?php echo isset($_SESSION['usuario_id']) ? 'true' : 'false'; ?>;
+    }
+    document.getElementById('btnAddCarrinho').addEventListener('click', function(e) {
+        if (!usuarioEstaLogado()) {
+            e.preventDefault();
+            window.location.href = 'login.php';
+        } else {
+            // Aqui você pode colocar a lógica de adicionar ao carrinho normalmente
+        }
+    });
+</script>
                             <div class="grid grid-cols-2 gap-4">
                                 <button class="border border-accent text-accent hover:bg-accent hover:text-white py-3 px-6 rounded-xl font-semibold transition-colors">
                                     <i class="fas fa-heart mr-2"></i>
