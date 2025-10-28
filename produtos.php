@@ -85,6 +85,31 @@
             box-shadow: 0 0 0 4px var(--color-primary), 0 0 0 6px var(--color-accent);
             transform: scale(1.1);
         }
+        #modal-content-area::-webkit-scrollbar {
+        width: 8px;
+        height: 8px; 
+    }
+
+    #modal-content-area::-webkit-scrollbar-track {
+        background: var(--color-primary); 
+        border-radius: 10px;
+    }
+
+    #modal-content-area::-webkit-scrollbar-thumb {
+        background-color: var(--color-accent); 
+        border-radius: 10px; 
+        transition: background-color 0.3s ease;
+    }
+
+    #modal-content-area::-webkit-scrollbar-thumb:hover {
+        background-color: #ff529c; 
+    }
+
+    /* Estilização para o Firefox */
+    #modal-content-area {
+        scrollbar-width: thin; 
+        scrollbar-color: var(--color-accent) var(--color-primary); 
+    }
     </style>
 
     <script>
@@ -390,153 +415,192 @@
             </div>
         </div>
     </section>
-
-    <div id="product-modal"
-        class="fixed inset-0 bg-black bg-opacity-70 modal-backdrop hidden z-50 flex items-center justify-center p-4">
-        <div class="bg-gray-900 rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-y-auto border border-accent/30 shadow-2xl transform transition-all duration-300 scale-95 opacity-0"
-            id="modal-content-area">
-            <div class="p-8 md:p-12">
-                <div class="flex justify-between items-start mb-8 border-b border-gray-700 pb-4">
-                    <div>
-                        <h3 id="modal-title" class="text-4xl font-extrabold mb-1"></h3>
-                        <div id="modal-price" class="text-4xl font-extrabold text-accent"></div>
+<div id="product-modal"
+    class="fixed inset-0 bg-black bg-opacity-70 modal-backdrop hidden z-50 flex items-center justify-center p-4 transition-opacity duration-300">
+    <div class="bg-gray-900 rounded-3xl max-w-4xl w-full max-h-[95vh] overflow-y-auto border border-accent/40 shadow-2xl shadow-accent/20 transform transition-all duration-500 ease-out scale-95 opacity-0"
+        id="modal-content-area">
+        <div class="p-8 md:p-10">
+            <div class="flex justify-between items-center mb-6 border-b border-gray-700/50 pb-4">
+                <div class="flex flex-col">
+                    <h3 id="modal-title" class="text-3xl font-extrabold text-white mb-0"></h3>
+                    <div class="flex items-center mt-1">
+                         <span class="text-xl font-medium text-gray-400 mr-2">Preço:</span>
+                         <div id="modal-price" class="text-4xl font-extrabold text-accent"></div>
                     </div>
-                    <button onclick="closeModal()"
-                        class="text-gray-400 hover:text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-800 transition-colors ml-4">
-                        <i class="fas fa-times"></i>
-                    </button>
+                </div>
+                <button onclick="closeModal()"
+                    class="text-gray-400 hover:text-white text-3xl w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-800 transition-colors ml-4 focus:outline-none focus:ring-2 focus:ring-accent">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-10">
+                
+                <div>
+                    <div id="modal-main-image-container"
+                        class="h-72 md:h-80 rounded-2xl mb-6 overflow-hidden shadow-xl border border-gray-700 bg-gray-800 flex items-center justify-center">
+                        <img id="modal-main-image" src="" alt="Imagem principal do produto"
+                            class="w-full h-full object-cover transition-opacity duration-300 ease-in-out">
+                    </div>
+
+                    <div class="mb-8 p-4 rounded-xl bg-gray-800 border border-gray-700 shadow-inner">
+                        <label class="block text-lg font-semibold mb-3 text-gray-200 text-center">
+                             Selecione a Cor
+                        </label>
+                        <div id="modal-color-selectors" class="flex gap-4 justify-center">
+                            </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-800 rounded-xl p-6 shadow-md border border-gray-700/50">
+                            <h4 class="text-xl font-bold mb-4 text-accent border-b border-accent/50 pb-2 uppercase tracking-wider">
+                                VISÃO GERAL
+                            </h4>
+                            <p id="modal-description" class="text-gray-300 leading-relaxed text-base">
+                                </p>
+                        </div>
+                        
+                        <div class="bg-gray-800 rounded-xl p-6 shadow-md border border-gray-700/50">
+                            <h4 class="text-xl font-bold mb-4 text-accent border-b border-accent/50 pb-2 uppercase tracking-wider">
+                                 ESPECIFICAÇÕES TÉCNICAS
+                            </h4>
+                            <ul id="modal-specs" class="space-y-3 text-base text-gray-300">
+                                </ul>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <div>
-                        <div id="modal-main-image-container"
-                            class="h-96 rounded-xl mb-4 overflow-hidden shadow-xl border border-gray-700 bg-gray-800 flex items-center justify-center">
-                            <img id="modal-main-image" src="" alt="Imagem principal do produto"
-                                class="w-full h-full object-cover transition-opacity duration-150 ease-in-out">
-                        </div>
+                <div class="space-y-6 lg:sticky lg:top-10">
+                    <div class="bg-gray-800 rounded-2xl p-6 shadow-2xl border-2 border-accent/50">
+                        <h4 class="text-2xl font-bold mb-5 border-b border-gray-700 pb-3 text-white uppercase tracking-wider">
+                        Detalhes do Pedido
+                        </h4>
+                        <p class="text-gray-400 mb-6 border-b border-gray-700/50 pb-4 text-sm">
+                            Configure a quantidade desejada e finalize a compra.
+                        </p>
 
-                        <div class="mt-6 mb-8">
-                            <label class="block text-xl font-semibold mb-3 text-gray-200">Selecione a Cor:</label>
-                            <div id="modal-color-selectors" class="flex gap-4 justify-center">
+                        <div class="mb-10">
+                            <label for="quantity" class="block text-lg font-semibold mb-3 text-gray-200">
+                                Quantidade
+                            </label>
+                            
+                            <div class="flex items-center space-x-3">
+                                <button type="button" onclick="changeQuantity(-1)" 
+                                    class="p-3 bg-gray-700 hover:bg-gray-600 rounded-lg text-white font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed" 
+                                    aria-label="Diminuir Quantidade">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                
+                                <input type="text" id="quantity" value="1" inputmode="numeric" pattern="[0-9]*"
+                                    class="w-20 text-center p-3 rounded-lg bg-gray-700 border border-gray-600 text-white text-xl font-bold 
+                                    focus:ring-2 focus:ring-accent focus:border-accent transition-colors
+                                    [appearance:textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                                    onkeypress="return isNumberKey(event)"
+                                    onchange="if(this.value < 1 || this.value == '') this.value = 1;">
+                                
+                                <button type="button" onclick="changeQuantity(1)" 
+                                    class="p-3 bg-gray-700 hover:bg-gray-600 rounded-lg text-white font-bold transition-colors" 
+                                    aria-label="Aumentar Quantidade">
+                                    <i class="fas fa-plus"></i>
+                                </button>
                             </div>
                         </div>
-                        <div class="bg-gray-800 rounded-xl p-6 mt-8 shadow-inner">
-                            <h4 class="text-lg font-bold mb-4 text-accent border-b border-accent/50 pb-2">Descrição</h4>
-                            <p id="modal-description" class="text-gray-300 mb-6"></p>
-                            <h4 class="text-lg font-bold mb-4 text-accent border-b border-accent/50 pb-2">Especificações
-                                Técnicas</h4>
-                            <div id="modal-specs" class="space-y-3 text-sm text-gray-300">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <h4 class="text-2xl font-bold mb-4">Opções de Compra</h4>
-                        <p class="text-gray-400 mb-6">Selecione as opções desejadas para adicionar ao seu carrinho.</p>
-
-                        <div class="mb-8">
-                            <label class="block text-lg font-semibold mb-2">Tamanho:</label>
-                            <div class="flex space-x-3">
-                                <button
-                                    class="px-4 py-2 bg-gray-700 rounded-lg border border-gray-600 transition-colors hover:bg-accent text-sm">Pequeno</button>
-                                <button
-                                    class="px-4 py-2 bg-accent rounded-lg border border-accent text-white font-bold text-sm">Médio</button>
-                                <button
-                                    class="px-4 py-2 bg-gray-700 rounded-lg border border-gray-600 transition-colors hover:bg-accent text-sm">Grande</button>
-                            </div>
-                        </div>
-
+                        
                         <a href="./compras.php" class="block">
                             <button
-                                class="w-full bg-accent hover:bg-pink-600 text-white py-4 rounded-xl font-extrabold text-xl shadow-xl transition-all transform hover:scale-[1.01]">
-                                <i class="fas fa-shopping-cart mr-3"></i> ADICIONAR AO CARRINHO
+                                class="w-full bg-accent hover:bg-pink-600 text-white py-4 rounded-xl font-extrabold text-xl 
+                                shadow-xl shadow-accent/30 transition-all transform hover:scale-[1.02] focus:outline-none focus:ring-4 focus:ring-accent/50">
+                                <i class="fas fa-cart-plus mr-3"></i> ADICIONAR AO CARRINHO
                             </button>
                         </a>
-
+                        
+                    </div>
+                    
+                    <div class="text-center">
                         <a href="garantia.php"
-                            class="block text-center mt-4 text-gray-400 hover:text-accent transition-colors">Ver
-                            política de devolução e garantia</a>
+                            class="inline-flex items-center text-sm text-gray-500 hover:text-accent transition-colors">
+                            <i class="fas fa-shield-alt mr-2"></i> Ver política de devolução e garantia
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <footer class="bg-primary text-white pt-16 pb-6">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
+</div>
+   <footer class="bg-primary text-white pt-16 pb-6">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-10 text-sm">
 
-                <div class="col-span-2 md:col-span-1">
-                    <div class="flex items-center mb-6">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            class="mr-3">
-                            <path d="M16 0L31.547 8.27214V23.7279L16 32L0.453018 23.7279V8.27214L16 0Z"
-                                fill="#FF2178" />
-                            <circle cx="16" cy="12" r="4" fill="#192230" />
-                        </svg>
-                        <div>
-                            <span class="text-xl font-bold">Geosync</span>
-                            
-                        </div>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed max-w-xs">
-                        Tecnologia inteligente para a segurança das crianças, com inovação e qualidade premium.
-                    </p>
+            <div class="col-span-2 md:col-span-2">
+                
+                <div class="mb-4">
+                    <img src="./imagens/GeoSync-LOGO1.png" alt="Logo Geosync" class="h-8 w-auto">
                 </div>
+                
+                <p class="text-gray-400 leading-relaxed max-w-xs mb-8">
+                    Tecnologia inteligente para a segurança e monitoramento das crianças, com inovação e qualidade premium.
+                </p>
 
-                <div>
-                    <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Navegação</h4>
-                    <ul class="space-y-3">
-                        <li><a href="./index.php" class="text-gray-400 hover:text-white transition-colors">Página
-                                Inicial</a></li>
-                        <li><a href="./produtos.php"
-                                class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tecnologia</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Suporte</a></li>
-                    </ul>
+                <h4 class="text-accent font-bold mb-4 uppercase tracking-wider">Disponível para Instalar</h4>
+                <div class="flex space-x-3">
+                    <a href="#" target="_blank" aria-label="Baixar na Google Play">
+                        <img src="./imagens/appp.png" alt="Google Play" class="h-10 transition-transform duration-300 hover:scale-105">
+                    </a>
+                    <a href="#" target="_blank" aria-label="Baixar na App Store">
+                        <img src="./imagens/googleteste.png" alt="App Store" class="h-10 transition-transform duration-300 hover:scale-105">
+                    </a>
                 </div>
-
-                <div>
-                    <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Contato</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt text-accent mr-3"></i>
-                            <span class="text-gray-400">(11) 9999-9999</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope text-accent mr-3"></i>
-                            <span class="text-gray-400">contato@geosync.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-accent mr-3"></i>
-                            <span class="text-gray-400">São Paulo, SP</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Redes Sociais</h4>
-                    <div class="flex space-x-4 mb-4">
-                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
-                            <i class="fab fa-facebook-f text-white"></i>
-                        </a> -->
-                        <a href="https://www.instagram.com/geosync.web/?utm_source=ig_web_button_share_sheet"
-                            class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center" target="_blank">
-                            <i class="fab fa-instagram text-white"></i>
-                        </a>
-                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
-                            <i class="fab fa-linkedin-in text-white"></i>
-                        </a> -->
-                    </div>
-                    <p class="text-gray-400 text-xs mt-6">Siga-nos para novidades e atualizações</p>
-                </div>
-
             </div>
 
-            <div class="border-t border-gray-700 mt-12 pt-6 text-center text-xs text-gray-500">
-                &copy; 2024 Geosync. Todos os direitos reservados. | Tecnologia e Segurança
+            <div class="hidden md:block"> <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Navegação</h4>
+                <ul class="space-y-3">
+                    <li><a href="./index.php" class="text-gray-400 hover:text-white transition-colors">Página Inicial</a></li>
+                    <li><a href="./produtos.php" class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
+                    <li><a href="./compras.php" class="text-gray-400 hover:text-white transition-colors">Carrinho</a></li>
+                    <li><a href="./comoFunc.php" class="text-gray-400 hover:text-white transition-colors">Saiba Mais</a></li>
+                    <li><a href="./garantia.php" class="text-gray-400 hover:text-white transition-colors">Política de Privacidade</a></li>
+                   
+                </ul>
             </div>
+
+            <div>
+                <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Contato</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt text-accent mt-1 mr-3"></i>
+                        <span class="text-gray-400">(11) 9999-9999</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope text-accent mt-1 mr-3"></i>
+                        <span class="text-gray-400">contato@geosync.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-accent mt-1 mr-3"></i>
+                        <span class="text-gray-400">São Paulo, SP - Brasil</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Siga-nos</h4>
+                <div class="flex space-x-4 mb-4">
+                    <a href="https://www.instagram.com/geosync.web/?utm_source=ig_web_button_share_sheet"
+                        class="text-gray-400 hover:text-pink-500 transition-colors text-2xl" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                
+                </div>
+                <p class="text-gray-400 text-xs mt-6">Acompanhe nossas novidades e dicas de segurança.</p>
+            </div>
+
         </div>
-    </footer>
+
+        <div class="border-t border-gray-700 mt-12 pt-6 text-center text-xs text-gray-500">
+            &copy; 2024 Geosync. Todos os direitos reservados. | CNPJ: 00.000.000/0001-00
+        </div>
+    </div>
+</footer>
     <script>
         // **********************************************
         // FUNÇÃO PARA O MENU MOBILE RESPONSIVO (Hamburger)
@@ -651,7 +715,7 @@
                     'Recurso: Inteligência Artificial Preditiva',
                     'Bateria: 7 dias de duração',
                     'Material: Polímero Balístico',
-                    'Tamanho: 45 x 30 x 18 cm (Médio/Grande)'
+                    'Tamanho: 45 x 30 x 18 cm (Grande)'
                 ],
                 // Cor principal/padrão é o preto. Adicionei outras cores como exemplo.
                 colorMap: {
@@ -782,6 +846,25 @@
                 activeSelector.classList.add('active');
             }
         }
+        function changeQuantity(amount) {
+    const quantityInput = document.getElementById('quantity');
+    let currentQuantity = parseInt(quantityInput.value) || 0;
+    if (currentQuantity + amount >= 1) {
+        quantityInput.value = currentQuantity + amount;
+    } else {
+        quantityInput.value = 1; 
+    }
+}
+
+function isNumberKey(evt) {
+    const charCode = (evt.which) ? evt.which : evt.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    return true;
+}
+
+// Lembre-se também das funções closeModal() e, se houver, das funções do carrossel.
     </script>
 </body>
 

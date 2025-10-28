@@ -185,7 +185,7 @@
                         class="w-full h-full object-contain tech-animation rounded-xl shadow-2xl"
                         onerror="this.src=''; this.alt='Image failed to load'; this.style.display='none';" />
                     <div
-                        class="absolute -top-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center border-4 border-primary">
+                        class="absolute -top-2 -right-2 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center border-4 border-primary">
                         <i class="fas fa-wifi text-white text-sm"></i>
                     </div>
                 </div>
@@ -482,83 +482,79 @@
         </div>
     </section>
 
-    <footer class="bg-[#192230] text-white pt-16 pb-6">
-        <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-12 text-sm">
+ <footer class="bg-primary text-white pt-16 pb-6">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-10 text-sm">
 
-                <div class="col-span-2 md:col-span-1">
-                    <div class="flex items-center mb-6">
-                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            class="mr-3">
-                            <path d="M16 0L31.547 8.27214V23.7279L16 32L0.453018 23.7279V8.27214L16 0Z"
-                                fill="#FF2178" />
-                            <circle cx="16" cy="12" r="4" fill="#192230" />
-                        </svg>
-                        <div>
-                            <span class="text-xl font-bold">Geosync</span>
-                            
-                        </div>
-                    </div>
-                    <p class="text-gray-400 leading-relaxed max-w-xs">
-                        Tecnologia inteligente para a segurança das crianças, com inovação e qualidade premium.
-                    </p>
+            <div class="col-span-2 md:col-span-2">
+                
+                <div class="mb-4">
+                    <img src="./imagens/GeoSync-LOGO1.png" alt="Logo Geosync" class="h-8 w-auto">
                 </div>
+                
+                <p class="text-gray-400 leading-relaxed max-w-xs mb-8">
+                    Tecnologia inteligente para a segurança e monitoramento das crianças, com inovação e qualidade premium.
+                </p>
 
-                <div>
-                    <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Navegação</h4>
-                    <ul class="space-y-3">
-                        <li><a href="./index.php" class="text-gray-400 hover:text-white transition-colors">Página
-                                Inicial</a></li>
-                        <li><a href="./produtos.php"
-                                class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Tecnologia</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Suporte</a></li>
-                    </ul>
+                <h4 class="text-accent font-bold mb-4 uppercase tracking-wider">Disponível para Instalar</h4>
+                <div class="flex space-x-3">
+                    <a href="#" target="_blank" aria-label="Baixar na Google Play">
+                        <img src="./imagens/appp.png" alt="Google Play" class="h-10 transition-transform duration-300 hover:scale-105">
+                    </a>
+                    <a href="#" target="_blank" aria-label="Baixar na App Store">
+                        <img src="./imagens/googleteste.png" alt="App Store" class="h-10 transition-transform duration-300 hover:scale-105">
+                    </a>
                 </div>
-
-                <div>
-                    <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Contato</h4>
-                    <ul class="space-y-4">
-                        <li class="flex items-center">
-                            <i class="fas fa-phone-alt text-accent mr-3"></i>
-                            <span class="text-gray-400">(11) 9999-9999</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-envelope text-accent mr-3"></i>
-                            <span class="text-gray-400">contato@geosync.com</span>
-                        </li>
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt text-accent mr-3"></i>
-                            <span class="text-gray-400">São Paulo, SP</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Redes Sociais</h4>
-                    <div class="flex space-x-4 mb-4">
-                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
-                            <i class="fab fa-facebook-f text-white"></i>
-                        </a> -->
-                        <a href="https://www.instagram.com/geosync.web/?utm_source=ig_web_button_share_sheet"
-                            class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center" target="_blank">
-                            <i class="fab fa-instagram text-white"></i>
-                        </a>
-                        <!-- <a href="#" class="w-10 h-10 social-icon-hover rounded-full flex items-center justify-center">
-                            <i class="fab fa-linkedin-in text-white"></i>
-                        </a> -->
-                    </div>
-                    <p class="text-gray-400 text-xs mt-6">Siga-nos para novidades e atualizações</p>
-                </div>
-
             </div>
 
-            <div class="border-t border-gray-700 mt-12 pt-6 text-center text-xs text-gray-500">
-                &copy; 2024 Geosync. Todos os direitos reservados. | Tecnologia e Segurança
+            <div class="hidden md:block"> <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Navegação</h4>
+                <ul class="space-y-3">
+                    <li><a href="./index.php" class="text-gray-400 hover:text-white transition-colors">Página Inicial</a></li>
+                    <li><a href="./produtos.php" class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
+                    <li><a href="./compras.php" class="text-gray-400 hover:text-white transition-colors">Carrinho</a></li>
+                    <li><a href="./comoFunc.php" class="text-gray-400 hover:text-white transition-colors">Saiba Mais</a></li>
+                    <li><a href="./garantia.php" class="text-gray-400 hover:text-white transition-colors">Política de Privacidade</a></li>
+                   
+                </ul>
             </div>
+
+            <div>
+                <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Contato</h4>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <i class="fas fa-phone-alt text-accent mt-1 mr-3"></i>
+                        <span class="text-gray-400">(11) 9999-9999</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-envelope text-accent mt-1 mr-3"></i>
+                        <span class="text-gray-400">contato@geosync.com</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-map-marker-alt text-accent mt-1 mr-3"></i>
+                        <span class="text-gray-400">São Paulo, SP - Brasil</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-accent font-bold mb-6 uppercase tracking-wider">Siga-nos</h4>
+                <div class="flex space-x-4 mb-4">
+                    <a href="https://www.instagram.com/geosync.web/?utm_source=ig_web_button_share_sheet"
+                        class="text-gray-400 hover:text-pink-500 transition-colors text-2xl" target="_blank" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                
+                </div>
+                <p class="text-gray-400 text-xs mt-6">Acompanhe nossas novidades e dicas de segurança.</p>
+            </div>
+
         </div>
-    </footer>
 
+        <div class="border-t border-gray-700 mt-12 pt-6 text-center text-xs text-gray-500">
+            &copy; 2024 Geosync. Todos os direitos reservados. | CNPJ: 00.000.000/0001-00
+        </div>
+    </div>
+</footer>
     <script>
         // **********************************************
         // FUNÇÃO PARA O MENU MOBILE RESPONSIVO (Hamburger)
