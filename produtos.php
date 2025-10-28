@@ -360,9 +360,11 @@
                             </div>
                         </div>
 
-                        <button class="w-full bg-accent hover:bg-pink-600 text-white py-4 rounded-xl font-extrabold text-xl shadow-xl transition-all transform hover:scale-[1.01]">
-                            <i class="fas fa-shopping-cart mr-3"></i> ADICIONAR AO CARRINHO
-                        </button>
+                        <a href="./compras.php" class="block">
+                            <button class="w-full bg-accent hover:bg-pink-600 text-white py-4 rounded-xl font-extrabold text-xl shadow-xl transition-all transform hover:scale-[1.01]">
+                                <i class="fas fa-shopping-cart mr-3"></i> ADICIONAR AO CARRINHO
+                            </button>
+                        </a>
                         
                         <a href="garantia.php" class="block text-center mt-4 text-gray-400 hover:text-accent transition-colors">Ver política de devolução e garantia</a>
                     </div>
