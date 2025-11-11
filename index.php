@@ -264,7 +264,7 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
                 <div class="flex items-center space-x-6">
 
                     <div class="hidden md:flex space-x-8">
-                        <a href="./index.php" class="text-accent font-medium transition-colors border-b-2 border-accent pb-1">Início</a> 
+                        <a href="./index.php" class="text-accent font-medium transition-colors border-b-2 border-[#e01c6a] pb-1">Início</a> 
                         <a href="../GeoSync/comoFunc.php" class="hover:text-accent transition-colors">Saiba Mais</a>
                         <a href="./produtos.php" class="hover:text-accent transition-colors">Produtos</a>
                         <a href="./compras.php" class="hover:text-accent transition-colors">Carrinho</a>
