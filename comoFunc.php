@@ -125,14 +125,10 @@
                         <a href="./index.php" class="hover:text-accent transition-colors">Início</a>
                         <a href="../GeoSync/comoFunc.php" class="text-accent font-medium transition-colors border-b-2 border-accent pb-1">Saiba Mais</a>
                         <a href="./produtos.php" class="hover:text-accent transition-colors">Produtos</a>
-                        <a href="./compras.php" class="hover:text-accent transition-colors">Carrinho</a>
+                       
                     </div>
 
-                    <a href="./login.php" class="hidden md:block text-white hover:text-accent transition-colors"
-                        title="Login / Perfil">
-                        <i class="fas fa-user-circle text-2xl"></i>
-                    </a>
-
+         
                     <button class="md:hidden hover:text-accent transition-colors" onclick="toggleMobileMenu()">
                         <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -158,8 +154,7 @@
                     Mais</a>
                 <a href="./produtos.php"
                     class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Produtos</a>
-                <a href="./compras.php"
-                    class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Carrinho</a>
+            
                 <a href="./login.php"
                     class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-800 hover:bg-gray-700 transition-colors">
                     <i class="fas fa-sign-in-alt mr-2"></i> Login / Criar Conta
@@ -511,7 +506,7 @@
                 <ul class="space-y-3">
                     <li><a href="./index.php" class="text-gray-400 hover:text-white transition-colors">Página Inicial</a></li>
                     <li><a href="./produtos.php" class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
-                    <li><a href="./compras.php" class="text-gray-400 hover:text-white transition-colors">Carrinho</a></li>
+              
                     <li><a href="./comoFunc.php" class="text-gray-400 hover:text-white transition-colors">Saiba Mais</a></li>
                     <li><a href="./garantia.php" class="text-gray-400 hover:text-white transition-colors">Política de Privacidade</a></li>
                    

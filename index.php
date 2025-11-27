@@ -1,37 +1,4 @@
-<?php
-session_start();
 
-// Redireciona para a página de login se a variável de sessão 'usuario' não estiver definida.
-if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-    exit;
-}
-
-/**
- * Define o nome do usuário.
- * * Acessa o nome a partir de $_SESSION['usuario']['nome'].
- * Se o array 'usuario' existir, mas a chave 'nome' não, ou se 'usuario' for uma string,
- * a lógica abaixo tenta lidar com isso, mas o ideal é que a sessão siga uma estrutura consistente:
- * * Se $_SESSION['usuario'] for um ARRAY (e.g., ['id' => 1, 'nome' => 'Seu Nome']):
- * $nome_usuario = $_SESSION['usuario']['nome'] ?? 'Usuário';
- * * Se $_SESSION['usuario'] for apenas uma STRING (e.g., 'Seu Nome'):
- * $nome_usuario = is_array($_SESSION['usuario']) ? ($_SESSION['usuario']['nome'] ?? 'Usuário') : $_SESSION['usuario'];
- * * MANTENDO A SUA VERSÃO MAIS PROVÁVEL e segura (acessando a chave 'nome' de um array de sessão):
- */
-$nome_usuario = is_array($_SESSION['usuario']) && isset($_SESSION['usuario']['nome']) 
-              ? $_SESSION['usuario']['nome'] 
-              : (is_string($_SESSION['usuario']) ? $_SESSION['usuario'] : 'Usuário');
-
-// Se a sessão for um array, mas sem 'nome', ou se for algo inesperado, usa o default 'Usuário'.
-// Se a sua sessão for SOMENTE a string com o nome, a linha acima garante que funcione.
-// Se a sua sessão for um array com a chave 'nome', a linha acima garante que funcione.
-
-// NOTA: Para este código, vamos manter a lógica mais simples e comum do seu rascunho, 
-// assumindo que a sessão é um array com a chave 'nome', mas aprimorando a verificação:
-$nome_usuario = $_SESSION['usuario']['nome'] ?? $_SESSION['usuario'] ?? 'Usuário';
-$nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XSS
-
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -267,15 +234,10 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
                         <a href="./index.php" class="text-accent font-medium transition-colors border-b-2 border-[#e01c6a] pb-1">Início</a> 
                         <a href="../GeoSync/comoFunc.php" class="hover:text-accent transition-colors">Saiba Mais</a>
                         <a href="./produtos.php" class="hover:text-accent transition-colors">Produtos</a>
-                        <a href="./compras.php" class="hover:text-accent transition-colors">Carrinho</a>
+                      
                     </div>
 
-                    <div class="hidden md:flex items-center space-x-4">
-                        <span class="text-gray-300">Olá, <strong><?php echo $nome_usuario; ?></strong></span>
-                        <a href="sair.php" class="text-white custom-btn-pink px-3 py-1 rounded-md text-sm font-medium hover:bg-red-600 transition-colors" title="Sair da Conta">
-                            <i class="fas fa-sign-out-alt mr-1"></i> Sair
-                        </a>
-                    </div>
+                 
                     <button class="md:hidden hover:text-accent transition-colors" onclick="toggleMobileMenu()">
                         <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -295,7 +257,7 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
                 <a href="./index.php" class="block px-3 py-2 rounded-md text-base font-medium text-accent bg-gray-700 transition-colors">Início</a>
                 <a href="../GeoSync/comoFunc.php" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Saiba Mais</a>
                 <a href="./produtos.php" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Produtos</a>
-                <a href="./compras.php" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-700 hover:text-accent transition-colors">Carrinho</a>
+               
                 <a href="./sair.php" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-red-700 hover:bg-red-600 transition-colors mt-2">
                     <i class="fas fa-sign-out-alt mr-2"></i> Sair
                 </a>
@@ -585,7 +547,7 @@ $nome_usuario = htmlspecialchars($nome_usuario); // Garante segurança contra XS
                 <ul class="space-y-3">
                     <li><a href="./index.php" class="text-gray-400 hover:text-white transition-colors">Página Inicial</a></li>
                     <li><a href="./produtos.php" class="text-gray-400 hover:text-white transition-colors">Produtos</a></li>
-                    <li><a href="./compras.php" class="text-gray-400 hover:text-white transition-colors">Carrinho</a></li>
+
                     <li><a href="./comoFunc.php" class="text-gray-400 hover:text-white transition-colors">Saiba Mais</a></li>
                     <li><a href="./garantia.php" class="text-gray-400 hover:text-white transition-colors">Política de Privacidade</a></li>
                    
