@@ -518,7 +518,7 @@
                 <ul class="space-y-4">
                     <li class="flex items-start">
                         <i class="fas fa-phone-alt text-accent mt-1 mr-3"></i>
-                        <span class="text-gray-400">(11) 9999-9999</span>
+               <span class="text-gray-400">(12) 98864-7020</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-envelope text-accent mt-1 mr-3"></i>

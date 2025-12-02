@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Geosync - Produtos</title>
     <script src="https://cdn.tailwindcss.com"></script>
+      <link rel="shortcut icon" href="./imagens/GeoSync-bg.png" type="image/x-icon">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         /* Variáveis de Cores */
@@ -556,7 +557,7 @@
                 <ul class="space-y-4">
                     <li class="flex items-start">
                         <i class="fas fa-phone-alt text-accent mt-1 mr-3"></i>
-                        <span class="text-gray-400">(11) 9999-9999</span>
+                        <span class="text-gray-400">(12) 98864-7020</span>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-envelope text-accent mt-1 mr-3"></i>
@@ -602,7 +603,7 @@
                     'Bateria de Longa Duração (7 dias)',
                     'Sensor de Abertura Imediata',
                     'Criptografia de Dados E2E',
-                    'Material Premium Impermeável'
+                    'Tamanho: 47×32×20 cm'
                 ],
                 colors: {
                     red: './imagens/vermelho-1.jpeg',
@@ -618,7 +619,7 @@
                 description: 'Nosso modelo mais vendido, oferecendo funcionalidades essenciais com excelente custo-benefício. Possui rastreamento GPS e sensores de abertura confiáveis. O equilíbrio perfeito entre segurança e acessibilidade.',
                 specs: [
                     'Rastreamento GPS Padrão',
-                    'Sensor de Abertura Simples',
+                    'Tamanho: 44×30×18 cm',
                     'Bateria de Média Duração (4 dias)',
                     'Material Resistente (IPX4)'
                 ],
@@ -637,7 +638,7 @@
                 specs: [
                     'Botão de Emergência SOS',
                     'Localização GPS Simplificada',
-                    'Material Atóxico e Leve',
+                    'Tamanho: 38×26×14 cm',
                     'Design Ergonômico Infantil'
                 ],
                 colors: {
@@ -754,7 +755,7 @@
             const message = `Olá! Tenho interesse em adquirir o produto *${product}* na cor *${colorName}* (R$ ${price}). Gostaria de finalizar a compra.`;
             
             // Número de telefone de exemplo (substitua pelo seu)
-            const phoneNumber = '5512988647020'; 
+            const phoneNumber = '5512992585293'; 
 
             const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             
